@@ -11,7 +11,7 @@
     <!-- Barra de Navegación -->
     <header>
         <div class="logo-contenedor">
-            <img src="logo-empresa.jpeg" alt="KIA & JOELOGÍSTICA S.A." class="logo-img">
+            <img src="logo.png" alt="KIA & JOELOGÍSTICA S.A." class="logo-img">
             <div class="logo-texto">
                 <h1>KIA & JOELOGÍSTICA <span>S.A.</span></h1>
                 <p>Transporte y Logística</p>
@@ -21,8 +21,7 @@
             <a href="#" class="active">Inicio</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#servicios">Servicios</a>
-            <a href="#preguntas">Preguntas Frecuentes</a>
-            <a href="#clientes">Nuestros Clientes</a>
+            <a href="#flota">Nuestra Flota</a>
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
@@ -59,7 +58,7 @@
         </div>
     </section>
 
-    <!-- Quiénes Somos con Carrusel de Fotos y Flechas -->
+    <!-- Quiénes Somos -->
     <section class="nosotros" id="nosotros">
         <div class="contenedor">
             <div class="nosotros-texto">
@@ -67,16 +66,10 @@
                 <h2>Compañía de Transporte y Logística</h2>
                 <p><strong>KIA & JOELOGÍSTICA S.A.</strong> es una empresa ecuatoriana dedicada al transporte de carga y soluciones logísticas integrales. Ubicados en Guayaquil, ofrecemos servicios especializados con garantía de calidad, seguridad y puntualidad.</p>
                 <p>Contamos con flota propia y personal capacitado para asegurar que su mercancía llegue a destino en perfectas condiciones. Su carga está en las mejores manos.</p>
+                <a href="#contacto" class="btn-enlace">Conocer Más →</a>
             </div>
-            <div class="nosotros-carrusel">
-                <button class="flecha izq" onclick="moverCarrusel(-1)">&#10094;</button>
-                <div class="carrusel-imagenes">
-                    <img src="qsomosprinci.jpeg" alt="Quiénes Somos" class="carrusel-img activa">
-                    <img src="Quienessomos(gato).jpeg" alt="Quiénes Somos" class="carrusel-img">
-                    <img src="quienessomos2.jpeg" alt="Quiénes Somos" class="carrusel-img">
-                    <img src="quienesosmos1.jpeg" alt="Quiénes Somos" class="carrusel-img">
-                </div>
-                <button class="flecha der" onclick="moverCarrusel(1)">&#10095;</button>
+            <div class="nosotros-imagen">
+                <img src="empresa.jpg" alt="Transporte K&J">
             </div>
         </div>
     </section>
@@ -107,60 +100,18 @@
         </div>
     </section>
 
-    <!-- Nuestros Clientes -->
-    <section class="clientes" id="clientes">
+    <!-- Nuestra Flota / Fotos -->
+    <section class="flota" id="flota">
         <div class="contenedor">
-            <span class="etiqueta">Nuestros Clientes</span>
-            <h2>Empresas que Confían en Nosotros</h2>
-            <p class="descripcion">Trabajamos con empresas líderes del mercado, transportando su carga con la calidad que se merecen.</p>
-            <div class="clientes-grid">
-                <div class="cliente-card">
-                    <img src="supermecado.jpeg" alt="Supermercado">
-                    <p>Supermercado</p>
-                </div>
-                <div class="cliente-card">
-                    <img src="TUTI.jpeg" alt="TUTI">
-                    <p>TUTI</p>
-                </div>
-                <div class="cliente-card">
-                    <img src="Cerveceria.png" alt="Cervecería">
-                    <p>Cervecería</p>
-                </div>
+            <span class="etiqueta">Nuestra Flota</span>
+            <h2>Equipos a su Servicio</h2>
+            <p class="descripcion">Contamos con unidades en excelente estado, listas para transportar su carga con la máxima seguridad.</p>
+            <div class="flota-fotos">
+                <div class="foto-item"><img src="flota1.jpg" alt="Unidad de transporte"></div>
+                <div class="foto-item"><img src="flota2.jpg" alt="Unidad de transporte"></div>
+                <div class="foto-item"><img src="flota3.jpg" alt="Unidad de transporte"></div>
+                <div class="foto-item"><img src="flota4.jpg" alt="Unidad de transporte"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Preguntas Frecuentes -->
-    <section class="preguntas-seccion" id="preguntas">
-        <div class="contenedor">
-            <span class="etiqueta">Preguntas Frecuentes</span>
-            <h2>¿Tiene alguna duda?</h2>
-            <p class="descripcion">Resolvemos las inquietudes más comunes sobre nuestros servicios de transporte y logística.</p>
-
-            <details class="pregunta">
-                <summary>¿A qué destinos realizan envíos?</summary>
-                <p>Realizamos envíos a nivel nacional, cubriendo las principales ciudades, puertos y regiones del Ecuador.</p>
-            </details>
-
-            <details class="pregunta">
-                <summary>¿Cuáles son los tiempos de entrega?</summary>
-                <p>Depende del destino y tipo de carga. Generalmente entre 3 y 7 días a nivel nacional. Le brindamos un estimado al momento de cotizar.</p>
-            </details>
-
-            <details class="pregunta">
-                <summary>¿El servicio incluye seguro de carga?</summary>
-                <p>Sí, todas nuestras cargas cuentan con cobertura contra todo riesgo. También puede contratar coberturas adicionales según su necesidad.</p>
-            </details>
-
-            <details class="pregunta">
-                <summary>¿Cómo solicito una cotización?</summary>
-                <p>Puede llamarnos al 0994588225, escribirnos por WhatsApp o llenar nuestros datos en la sección de contacto. Le responderemos de inmediato.</p>
-            </details>
-
-            <details class="pregunta">
-                <summary>¿Qué tipos de carga transportan?</summary>
-                <p>Transporte de carga general, alimentos, productos industriales, carga pesada y voluminosa. Consúltenos su caso especial.</p>
-            </details>
         </div>
     </section>
 
@@ -203,8 +154,7 @@
                 <a href="#inicio">Inicio</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#servicios">Servicios</a>
-                <a href="#clientes">Nuestros Clientes</a>
-                <a href="#preguntas">Preguntas Frecuentes</a>
+                <a href="#flota">Nuestra Flota</a>
                 <a href="#contacto">Contacto</a>
             </div>
             <div class="footer-telefonos">
@@ -220,22 +170,6 @@
 
     <!-- Botón WhatsApp flotante -->
     <a href="https://wa.me/5930994588225" target="_blank" class="whatsapp">💬</a>
-
-    <!-- Script para el carrusel de Quiénes Somos -->
-    <script>
-        let indice = 0;
-        const imagenes = document.querySelectorAll('.carrusel-img');
-
-        function mostrar(n) {
-            imagenes.forEach(img => img.classList.remove('activa'));
-            indice = (n + imagenes.length) % imagenes.length;
-            imagenes[indice].classList.add('activa');
-        }
-
-        function moverCarrusel(n) {
-            mostrar(indice + n);
-        }
-    </script>
 
 </body>
 </html>
