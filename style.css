@@ -1,35 +1,471 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-body { color: #333; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+/* =============================================
+   ESTILOS — KIA & JOELOGÍSTICA S.A.
+   Inspirado en Andinave + colores del logo:
+   Azul marino · Rojo elegante · Dorado
+   ============================================= */
 
-.navbar { background: #0A0A0A; padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 3px solid #D4AF37; }
-.navbar .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { color: #D4AF37; font-size: 28px; font-weight: bold; }
-.logo span { color: white; }
-.menu a { color: white; text-decoration: none; margin-left: 30px; font-weight: 500; transition: 0.3s; }
-.menu a:hover { color: #D4AF37; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
 
-.hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('wa_image_159048334472837272') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 70px; }
-.hero h1 { font-size: 48px; color: #D4AF37; margin-bottom: 20px; }
-.hero p { font-size: 20px; margin-bottom: 30px; }
-.btn-principal { background: #D4AF37; color: #0A0A0A; padding: 18px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; }
-.btn-principal:hover { background: white; }
+:root {
+    --azul-oscuro: #0A1A2F;
+    --azul-medio: #0F2A48;
+    --rojo-elegante: #B22234;
+    --dorado: #D4AF37;
+    --dorado-claro: #F0C808;
+    --blanco: #FFFFFF;
+    --gris-claro: #F5F5F5;
+    --gris-texto: #444444;
+}
 
-.seccion { padding: 80px 20px; text-align: center; }
-.seccion h2 { font-size: 36px; color: #0A0A0A; margin-bottom: 40px; }
-.gris { background: #f4f4f4; }
+body {
+    background: var(--blanco);
+    color: var(--gris-texto);
+    line-height: 1.7;
+}
 
-.cards { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
-.card { background: white; padding: 30px; border-radius: 10px; width: 300px; border-top: 4px solid #D4AF37; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.card h3 { color: #D4AF37; margin-bottom: 15px; }
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-.galeria { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-.galeria img { width: 350px; height: 250px; object-fit: cover; border-radius: 10px; border: 3px solid #D4AF37; }
+.etiqueta {
+    display: inline-block;
+    color: var(--rojo-elegante);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
 
-.contacto { background: #0A0A0A; color: white; }
-.contacto h2 { color: #D4AF37; }
+h2 {
+    font-size: 2.5rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
 
-footer { background: #000; color: #D4AF37; text-align: center; padding: 20px; }
+/* ---------------- ENCABEZADO ---------------- */
+header {
+    background: var(--blanco);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-.whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 999; }
-.whatsapp-float img { width: 100%; }
+.logo-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+}
+
+.logo-texto h1 {
+    font-size: 1.3rem;
+    color: var(--azul-oscuro);
+    line-height: 1.2;
+}
+
+.logo-texto h1 span {
+    color: var(--rojo-elegante);
+}
+
+.logo-texto p {
+    font-size: 0.85rem;
+    color: var(--dorado);
+    font-weight: 500;
+}
+
+nav a {
+    margin-left: 1.8rem;
+    text-decoration: none;
+    color: var(--azul-medio);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--rojo-elegante);
+}
+
+/* ---------------- PORTADA CON CARRUSEL ---------------- */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 5%;
+    overflow: hidden;
+}
+
+.carrusel-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: carrusel 15s infinite;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+@keyframes carrusel {
+    0% {
+        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo.png');
+    }
+    33% {
+        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo2.jpeg');
+    }
+    66% {
+        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo3.jpeg');
+    }
+    100% {
+        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo.png');
+    }
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    color: var(--blanco);
+}
+
+.hero-contenido h2 {
+    font-size: 1.2rem;
+    color: var(--dorado);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.hero-contenido h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-contenido h1 span {
+    color: var(--dorado-claro);
+}
+
+.hero-contenido p {
+    font-size: 1.1rem;
+    color: #ddd;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.botones-hero {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.95rem 2.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn.principal {
+    background: linear-gradient(90deg, var(--rojo-elegante), #C42C3E);
+    color: var(--blanco);
+    box-shadow: 0 4px 15px rgba(178, 34, 52, 0.35);
+}
+
+.btn.principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(178, 34, 52, 0.45);
+}
+
+.btn.secundario {
+    border: 2px solid var(--dorado);
+    color: var(--dorado);
+    background: transparent;
+}
+
+.btn.secundario:hover {
+    background: var(--dorado);
+    color: var(--azul-oscuro);
+}
+
+/* ---------------- DATOS DESTACADOS ---------------- */
+.datos-empresa {
+    background: linear-gradient(90deg, var(--azul-oscuro), var(--azul-medio));
+    padding: 3rem 5%;
+}
+
+.datos-empresa .contenedor {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    text-align: center;
+}
+
+.dato {
+    color: var(--blanco);
+}
+
+.dato .numero {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dorado);
+    margin-bottom: 0.5rem;
+}
+
+/* ---------------- QUIENES SOMOS ---------------- */
+.nosotros {
+    padding: 5rem 5%;
+    background: var(--blanco);
+}
+
+.nosotros .contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.nosotros-texto p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--gris-texto);
+}
+
+.btn-enlace {
+    color: var(--rojo-elegante);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.btn-enlace:hover {
+    color: var(--dorado);
+}
+
+.nosotros-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* ---------------- SERVICIOS ---------------- */
+.servicios {
+    padding: 5rem 5%;
+    background: var(--gris-claro);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.servicio-card {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 3px solid var(--rojo-elegante);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+}
+
+.servicio-card h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.servicio-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* ---------------- NUESTRA FLOTA / FOTOS ---------------- */
+.flota {
+    padding: 5rem 5%;
+    background: var(--blanco);
+}
+
+.flota .descripcion {
+    max-width: 700px;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.flota-fotos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.foto-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.foto-item img:hover {
+    transform: scale(1.03);
+}
+
+/* ---------------- CONTACTO ---------------- */
+.contacto {
+    padding: 5rem 5%;
+    background: linear-gradient(180deg, var(--gris-claro), #fff);
+    text-align: center;
+}
+
+.contacto p {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.contacto-datos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.dato-contacto h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.dato-contacto p {
+    color: #555;
+    margin: 0;
+}
+
+/* ---------------- PIE DE PÁGINA ---------------- */
+footer {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    padding: 4rem 5% 2rem;
+}
+
+.footer-contenido {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo h3 span {
+    color: var(--rojo-elegante);
+}
+
+.footer-logo p {
+    color: #aaa;
+}
+
+.footer-enlaces a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 0.7rem;
+    transition: color 0.3s ease;
+}
+
+.footer-enlaces a:hover {
+    color: var(--dorado);
+}
+
+.footer-telefonos p {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.copy {
+    border-top: 1px solid rgba(212,175,55,0.2);
+    padding-top: 2rem;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* ---------------- WHATSAPP FLOTANTE ---------------- */
+.whatsapp {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    z-index: 99;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* ---------------- RESPONSIVO ---------------- */
+@media(max-width: 1024px) {
+    .servicios-grid, .flota-fotos, .contacto-datos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nosotros .contenedor, .footer-contenido {
+        grid-template-columns: 1fr;
+    }
+    nav { display: none; }
+}
+
+@media(max-width: 600px) {
+    .servicios-grid, .flota-fotos, .contacto-datos {
+        grid-template-columns: 1fr;
+    }
+    .hero-contenido h1 { font-size: 2rem; }
+}
