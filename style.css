@@ -1,6 +1,5 @@
 /* =============================================
    ESTILOS — KIA & JOELOGÍSTICA S.A.
-   Inspirado en Andinave + colores del logo:
    Azul marino · Rojo elegante · Dorado
    ============================================= */
 
@@ -58,6 +57,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
@@ -73,6 +73,7 @@ header {
 .logo-img {
     height: 70px;
     width: auto;
+    border-radius: 4px;
 }
 
 .logo-texto h1 {
@@ -92,11 +93,11 @@ header {
 }
 
 nav a {
-    margin-left: 1.8rem;
+    margin-left: 1.2rem;
     text-decoration: none;
     color: var(--azul-medio);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
@@ -231,13 +232,13 @@ nav a:hover, nav a.active {
 
 .dato .numero {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--dorado);
     margin-bottom: 0.5rem;
 }
 
-/* ---------------- QUIENES SOMOS ---------------- */
+/* ---------------- QUIENES SOMOS CON CARRUSEL ---------------- */
 .nosotros {
     padding: 5rem 5%;
     background: var(--blanco);
@@ -256,24 +257,66 @@ nav a:hover, nav a.active {
     color: var(--gris-texto);
 }
 
-.btn-enlace {
-    color: var(--rojo-elegante);
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 1rem;
-    transition: color 0.3s ease;
+.nosotros-carrusel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-enlace:hover {
-    color: var(--dorado);
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease;
 }
 
-.nosotros-imagen img {
+.flecha:hover {
+    background: var(--rojo-elegante);
+}
+
+.flecha.izq {
+    left: -10px;
+}
+
+.flecha.der {
+    right: -10px;
+}
+
+.carrusel-imagenes {
     width: 100%;
-    height: auto;
+    height: 380px;
+    position: relative;
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.carrusel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.carrusel-img.activa {
+    opacity: 1;
 }
 
 /* ---------------- SERVICIOS ---------------- */
@@ -313,35 +356,105 @@ nav a:hover, nav a.active {
     font-size: 0.95rem;
 }
 
-/* ---------------- NUESTRA FLOTA / FOTOS ---------------- */
-.flota {
+/* ---------------- NUESTROS CLIENTES ---------------- */
+.clientes {
     padding: 5rem 5%;
-    background: var(--blanco);
+    background: linear-gradient(180deg, #fff, var(--gris-claro));
 }
 
-.flota .descripcion {
+.clientes .descripcion {
     max-width: 700px;
     color: #666;
     margin-bottom: 3rem;
 }
 
-.flota-fotos {
+.clientes-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
 }
 
-.foto-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.cliente-card {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--dorado);
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     transition: transform 0.3s ease;
 }
 
-.foto-item img:hover {
-    transform: scale(1.03);
+.cliente-card:hover {
+    transform: translateY(-8px);
+}
+
+.cliente-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.cliente-card p {
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    font-size: 1.05rem;
+}
+
+/* ---------------- PREGUNTAS FRECUENTES ---------------- */
+.preguntas-seccion {
+    padding: 5rem 5%;
+    background: var(--blanco);
+}
+
+.preguntas-seccion .descripcion {
+    max-width: 700px;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+details.pregunta {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    padding: 1.5rem 1.8rem;
+    background: var(--blanco);
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+details.pregunta summary {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    list-style: none;
+    position: relative;
+    padding-right: 2rem;
+}
+
+details.pregunta summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--rojo-elegante);
+    font-weight: 700;
+    transition: transform 0.25s ease;
+}
+
+details.pregunta[open] summary::after {
+    content: '−';
+}
+
+details.pregunta p {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    color: #555;
+    line-height: 1.7;
+    border-top: 1px solid #eee;
 }
 
 /* ---------------- CONTACTO ---------------- */
@@ -454,18 +567,23 @@ footer {
 
 /* ---------------- RESPONSIVO ---------------- */
 @media(max-width: 1024px) {
-    .servicios-grid, .flota-fotos, .contacto-datos {
+    .servicios-grid, .clientes-grid, .contacto-datos {
         grid-template-columns: repeat(2, 1fr);
     }
     .nosotros .contenedor, .footer-contenido {
         grid-template-columns: 1fr;
     }
-    nav { display: none; }
+    .carrusel-imagenes { height: 300px; }
+    nav { margin-top: 0.5rem; }
 }
 
 @media(max-width: 600px) {
-    .servicios-grid, .flota-fotos, .contacto-datos {
+    .servicios-grid, .clientes-grid, .contacto-datos {
         grid-template-columns: 1fr;
     }
     .hero-contenido h1 { font-size: 2rem; }
+    .carrusel-imagenes { height: 250px; }
+    .flecha { width: 38px; height: 38px; }
+    .flecha.izq { left: 5px; }
+    .flecha.der { right: 5px; }
 }
