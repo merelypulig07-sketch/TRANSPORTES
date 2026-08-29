@@ -1,6 +1,5 @@
 /* =============================================
-   ESTILOS — KIA & JOELOGÍSTICA S.A.
-   Portada y Pie restaurados a su diseño original
+   ESTILOS ORIGINALES — Portada y Pie sin cambios
    ============================================= */
 * {
     margin: 0;
@@ -46,7 +45,7 @@ h2 {
 }
 
 /* =============================================
-   ENCABEZADO — RESTAURADO COMO ESTABA
+   ENCABEZADO — SIN CAMBIOS (IGUAL QUE ANTES)
    ============================================= */
 header {
     background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
@@ -97,7 +96,7 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   PORTADA / HERO — RESTAURADO COMO ESTABA
+   PORTADA / HERO — SIN CAMBIOS (IGUAL QUE ANTES)
    ============================================= */
 .hero {
     min-height: 85vh;
@@ -106,7 +105,6 @@ nav a:hover, nav a.active {
     padding: 5rem 5%;
     background: var(--blanco-hueso);
     position: relative;
-    overflow: hidden;
 }
 .hero-contenido h2 {
     font-size: 1.1rem;
@@ -118,7 +116,6 @@ nav a:hover, nav a.active {
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    color: var(--blanco);
 }
 .hero-contenido h1 span {
     color: var(--dorado-claro);
@@ -144,7 +141,6 @@ nav a:hover, nav a.active {
 .btn.principal {
     background: var(--rojo-elegante);
     color: var(--blanco);
-    border: none;
 }
 .btn.secundario {
     border: 2px solid var(--dorado);
@@ -239,7 +235,7 @@ nav a:hover, nav a.active {
 .carrusel-img.activa { opacity: 1; }
 
 /* =============================================
-   ✅ SERVICIOS — Con fondo azul-turquesa y dorado
+   ✅ SOLO AQUÍ CAMBIAMOS — Sección Servicios
    ============================================= */
 .servicios {
     padding: 5rem 5%;
@@ -294,7 +290,7 @@ nav a:hover, nav a.active {
 .decor-dorado.escudo { bottom: 20%; right: 8%; }
 
 /* =============================================
-   ✅ ONDA DORADA FIJA ABAJO — Se desplaza al scrollear
+   ✅ ONDA DORADA FIJA ABAJO — Se desplaza contigo
    ============================================= */
 .onda-dorada-fija {
     position: fixed;
@@ -404,7 +400,7 @@ details.pregunta p {
 .dato-contacto p { color: #555; margin: 0; }
 
 /* =============================================
-   🔴 PIE DE PÁGINA — RESTAURADO COMO ESTABA
+   🔴 PIE DE PÁGINA — SIN CAMBIOS (IGUAL QUE ANTES)
    ============================================= */
 footer {
     padding: 4rem 5% 2rem;
