@@ -1,5 +1,6 @@
 /* =============================================
    ESTILOS — KIA & JOELOGÍSTICA S.A.
+   Portada y Pie restaurados a su diseño original
    ============================================= */
 * {
     margin: 0;
@@ -45,7 +46,7 @@ h2 {
 }
 
 /* =============================================
-   ENCABEZADO
+   ENCABEZADO — RESTAURADO COMO ESTABA
    ============================================= */
 header {
     background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
@@ -59,38 +60,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    overflow: hidden;
-}
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 220px;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, #D4AF37);
-    clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%);
-    pointer-events: none;
-    opacity: 0.85;
-}
-header::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle at top right, rgba(255,255,255,0.9), rgba(240,200,8,0.6), transparent 60%);
-    border-radius: 0 0 0 100%;
-    pointer-events: none;
-    filter: blur(4px);
 }
 .logo-contenedor {
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
-    z-index: 3;
 }
 .logo-img {
     height: 70px;
@@ -110,10 +84,6 @@ header::after {
     color: var(--dorado);
     font-weight: 500;
 }
-nav {
-    position: relative;
-    z-index: 3;
-}
 nav a {
     margin-left: 1.2rem;
     text-decoration: none;
@@ -124,56 +94,22 @@ nav a {
 }
 nav a:hover, nav a.active {
     color: var(--dorado-claro);
-    text-shadow: 0 0 8px rgba(240, 200, 8, 0.4);
 }
 
 /* =============================================
-   SECCIÓN PRINCIPAL
+   PORTADA / HERO — RESTAURADO COMO ESTABA
    ============================================= */
 .hero {
-    position: relative;
     min-height: 85vh;
     display: flex;
     align-items: center;
     padding: 5rem 5%;
-    overflow: hidden;
-    border-bottom: 3px solid #D4AF37;
     background: var(--blanco-hueso);
-}
-.carrusel-fondo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    animation: carrusel 15s infinite;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-@keyframes carrusel {
-    0% {
-        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo.png');
-    }
-    33% {
-        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo2.jpeg');
-    }
-    66% {
-        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo3.jpeg');
-    }
-    100% {
-        background-image: linear-gradient(rgba(10, 26, 47, 0.85), rgba(15, 42, 72, 0.90)), url('fondo.png');
-    }
-}
-.hero-contenido {
     position: relative;
-    z-index: 1;
-    max-width: 650px;
-    color: var(--blanco);
+    overflow: hidden;
 }
 .hero-contenido h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--dorado);
     font-weight: 500;
     margin-bottom: 0.5rem;
@@ -182,15 +118,15 @@ nav a:hover, nav a.active {
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+    color: var(--blanco);
 }
 .hero-contenido h1 span {
     color: var(--dorado-claro);
 }
 .hero-contenido p {
-    font-size: 1.1rem;
-    color: #ddd;
+    font-size: 1.05rem;
+    color: #999;
     margin-bottom: 2.5rem;
-    line-height: 1.8;
 }
 .botones-hero {
     display: flex;
@@ -204,25 +140,16 @@ nav a:hover, nav a.active {
     font-weight: 700;
     font-size: 1rem;
     transition: all 0.3s ease;
-    display: inline-block;
 }
 .btn.principal {
-    background: linear-gradient(90deg, var(--rojo-elegante), #C42C3E);
+    background: var(--rojo-elegante);
     color: var(--blanco);
-    box-shadow: 0 4px 15px rgba(178, 34, 52, 0.35);
-}
-.btn.principal:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(178, 34, 52, 0.45);
+    border: none;
 }
 .btn.secundario {
     border: 2px solid var(--dorado);
     color: var(--dorado);
     background: transparent;
-}
-.btn.secundario:hover {
-    background: var(--dorado);
-    color: var(--azul-oscuro);
 }
 
 /* =============================================
@@ -239,15 +166,16 @@ nav a:hover, nav a.active {
     gap: 2rem;
     text-align: center;
 }
-.dato {
-    color: var(--blanco);
-}
 .dato .numero {
     display: block;
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--dorado);
     margin-bottom: 0.5rem;
+}
+.dato p {
+    color: var(--blanco);
+    font-size: 0.95rem;
 }
 
 /* =============================================
@@ -290,10 +218,6 @@ nav a:hover, nav a.active {
     align-items: center;
     justify-content: center;
     z-index: 10;
-    transition: background 0.3s ease;
-}
-.flecha:hover {
-    background: var(--rojo-elegante);
 }
 .flecha.izq { left: -10px; }
 .flecha.der { right: -10px; }
@@ -303,22 +227,19 @@ nav a:hover, nav a.active {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 .carrusel-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease;
 }
 .carrusel-img.activa { opacity: 1; }
 
 /* =============================================
-   SERVICIOS — Con fondo azul-turquesa y dorado
+   ✅ SERVICIOS — Con fondo azul-turquesa y dorado
    ============================================= */
 .servicios {
     padding: 5rem 5%;
@@ -373,7 +294,7 @@ nav a:hover, nav a.active {
 .decor-dorado.escudo { bottom: 20%; right: 8%; }
 
 /* =============================================
-   ONDA DORADA FIJA ABAJO — Se desplaza al scrollear
+   ✅ ONDA DORADA FIJA ABAJO — Se desplaza al scrollear
    ============================================= */
 .onda-dorada-fija {
     position: fixed;
@@ -389,12 +310,11 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   RESTO DE SECCIONES — Fondo blanco hueso
+   RESTO DE SECCIONES
    ============================================= */
 .clientes,
 .preguntas-seccion,
-.contacto,
-footer {
+.contacto {
     background: var(--blanco-hueso);
     position: relative;
     z-index: 2;
@@ -420,9 +340,7 @@ footer {
     border: 2px solid var(--dorado);
     text-align: center;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    transition: transform 0.3s ease;
 }
-.cliente-card:hover { transform: translateY(-8px); }
 .cliente-card img {
     width: 100%;
     height: 180px;
@@ -433,7 +351,6 @@ footer {
 .cliente-card p {
     font-weight: 600;
     color: var(--azul-oscuro);
-    font-size: 1.05rem;
 }
 
 .preguntas-seccion {
@@ -450,33 +367,17 @@ details.pregunta {
     padding: 1.5rem 1.8rem;
     background: var(--blanco);
     border-bottom: 1px solid #ddd;
-    cursor: pointer;
-    transition: all 0.25s ease;
 }
 details.pregunta summary {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--azul-oscuro);
     list-style: none;
-    position: relative;
-    padding-right: 2rem;
 }
-details.pregunta summary::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.4rem;
-    color: var(--rojo-elegante);
-    font-weight: 700;
-}
-details.pregunta[open] summary::after { content: '−'; }
 details.pregunta p {
     margin-top: 1rem;
     padding-top: 1rem;
     color: #555;
-    line-height: 1.7;
     border-top: 1px solid #eee;
 }
 
@@ -488,7 +389,6 @@ details.pregunta p {
     max-width: 600px;
     margin: 0 auto 3rem;
     color: #555;
-    font-size: 1.05rem;
 }
 .contacto-datos {
     display: grid;
@@ -503,8 +403,14 @@ details.pregunta p {
 }
 .dato-contacto p { color: #555; margin: 0; }
 
+/* =============================================
+   🔴 PIE DE PÁGINA — RESTAURADO COMO ESTABA
+   ============================================= */
 footer {
     padding: 4rem 5% 2rem;
+    background: var(--blanco-hueso);
+    position: relative;
+    z-index: 2;
 }
 .footer-contenido {
     display: grid;
@@ -515,6 +421,7 @@ footer {
 .footer-logo h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
+    color: var(--azul-oscuro);
 }
 .footer-logo h3 span { color: var(--rojo-elegante); }
 .footer-logo p { color: #777; }
@@ -523,7 +430,6 @@ footer {
     color: #555;
     text-decoration: none;
     margin-bottom: 0.7rem;
-    transition: color 0.3s ease;
 }
 .footer-enlaces a:hover { color: var(--dorado); }
 .footer-telefonos p {
@@ -563,7 +469,7 @@ footer {
 }
 
 /* =============================================
-   RESPONSIVO — Para celular y tablet
+   RESPONSIVO
    ============================================= */
 @media(max-width: 1024px) {
     .servicios-grid, .clientes-grid, .contacto-datos {
@@ -573,7 +479,6 @@ footer {
         grid-template-columns: 1fr;
     }
     .carrusel-imagenes { height: 300px; }
-    nav { margin-top: 0.5rem; }
 }
 @media(max-width: 600px) {
     .servicios-grid, .clientes-grid, .contacto-datos {
@@ -581,8 +486,5 @@ footer {
     }
     .hero-contenido h1 { font-size: 2rem; }
     .carrusel-imagenes { height: 250px; }
-    .flecha { width: 38px; height: 38px; }
-    .flecha.izq { left: 5px; }
-    .flecha.der { right: 5px; }
     .onda-dorada-fija { height: 100px; }
 }
