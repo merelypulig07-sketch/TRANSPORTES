@@ -1,6 +1,5 @@
 /* =============================================
    ESTILOS — KIA & JOELOGÍSTICA S.A.
-   Azul marino · Rojo elegante · Dorado
    ============================================= */
 * {
     margin: 0;
@@ -10,19 +9,19 @@
 }
 :root {
     --azul-oscuro: #0A1A2F;
-    --azul-medio: #0F2A48;
-    --azul-claro: #1E5A9C;
-    --rojo-elegante: #B22234;
+    --azul-medio: #123D66;
+    --turquesa: #1E90B5;
     --dorado: #D4AF37;
     --dorado-claro: #F0C808;
+    --blanco-hueso: #F8F4E9;
     --blanco: #FFFFFF;
-    --gris-claro: #F5F5F5;
-    --gris-texto: #444444;
+    --rojo-elegante: #B22234;
 }
 body {
-    background: var(--blanco);
-    color: var(--gris-texto);
+    background: var(--blanco-hueso);
+    color: #333;
     line-height: 1.7;
+    position: relative;
 }
 .contenedor {
     width: 90%;
@@ -46,7 +45,7 @@ h2 {
 }
 
 /* =============================================
-   ENCABEZADO COMPLETO CON TODOS LOS DETALLES
+   ENCABEZADO
    ============================================= */
 header {
     background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
@@ -56,14 +55,12 @@ header {
     align-items: center;
     flex-wrap: wrap;
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    border-bottom: 3px solid #D4AF37; /* ✅ LÍNEA DORADA ABAJO DE LA BARRA */
+    border-bottom: 3px solid #D4AF37;
     position: sticky;
     top: 0;
     z-index: 100;
     overflow: hidden;
 }
-
-/* ✅ ESQUINA DORADA INCLINADA EN LA PARTE DERECHA */
 header::before {
     content: '';
     position: absolute;
@@ -76,8 +73,6 @@ header::before {
     pointer-events: none;
     opacity: 0.85;
 }
-
-/* ✅ BRILLO / ILUMINACIÓN EN LA ESQUINA SUPERIOR DERECHA */
 header::after {
     content: '';
     position: absolute;
@@ -90,7 +85,6 @@ header::after {
     pointer-events: none;
     filter: blur(4px);
 }
-
 .logo-contenedor {
     display: flex;
     align-items: center;
@@ -134,7 +128,7 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   SECCIÓN PRINCIPAL CON LÍNEA DORADA ABAJO
+   SECCIÓN PRINCIPAL
    ============================================= */
 .hero {
     position: relative;
@@ -143,7 +137,8 @@ nav a:hover, nav a.active {
     align-items: center;
     padding: 5rem 5%;
     overflow: hidden;
-    border-bottom: 3px solid #D4AF37; /* ✅ LÍNEA DORADA ABAJO DEL BANNER */
+    border-bottom: 3px solid #D4AF37;
+    background: var(--blanco-hueso);
 }
 .carrusel-fondo {
     position: absolute;
@@ -230,7 +225,9 @@ nav a:hover, nav a.active {
     color: var(--azul-oscuro);
 }
 
-/* ---------------- DATOS DESTACADOS ---------------- */
+/* =============================================
+   DATOS DESTACADOS
+   ============================================= */
 .datos-empresa {
     background: linear-gradient(90deg, var(--azul-oscuro), var(--azul-medio));
     padding: 3rem 5%;
@@ -253,10 +250,12 @@ nav a:hover, nav a.active {
     margin-bottom: 0.5rem;
 }
 
-/* ---------------- QUIENES SOMOS CON CARRUSEL ---------------- */
+/* =============================================
+   QUIENES SOMOS
+   ============================================= */
 .nosotros {
     padding: 5rem 5%;
-    background: var(--blanco);
+    background: var(--blanco-hueso);
 }
 .nosotros .contenedor {
     display: grid;
@@ -267,7 +266,7 @@ nav a:hover, nav a.active {
 .nosotros-texto p {
     margin-bottom: 1.2rem;
     font-size: 1.05rem;
-    color: var(--gris-texto);
+    color: #444;
 }
 .nosotros-carrusel {
     position: relative;
@@ -296,12 +295,8 @@ nav a:hover, nav a.active {
 .flecha:hover {
     background: var(--rojo-elegante);
 }
-.flecha.izq {
-    left: -10px;
-}
-.flecha.der {
-    right: -10px;
-}
+.flecha.izq { left: -10px; }
+.flecha.der { right: -10px; }
 .carrusel-imagenes {
     width: 100%;
     height: 380px;
@@ -320,32 +315,41 @@ nav a:hover, nav a.active {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 }
-.carrusel-img.activa {
-    opacity: 1;
-}
+.carrusel-img.activa { opacity: 1; }
 
-/* ---------------- SERVICIOS ---------------- */
+/* =============================================
+   SERVICIOS — Con fondo azul-turquesa y dorado
+   ============================================= */
 .servicios {
     padding: 5rem 5%;
-    background: var(--gris-claro);
+    background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 35%),
+        linear-gradient(135deg, #0A1A2F 0%, #123D66 45%, #1E90B5 100%);
+    position: relative;
+    overflow: hidden;
+}
+.servicios .etiqueta { color: var(--dorado-claro); }
+.servicios h2 {
+    color: var(--blanco);
+    text-shadow: 0 0 10px rgba(240, 200, 8, 0.45);
 }
 .servicios-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    position: relative;
+    z-index: 2;
 }
 .servicio-card {
     background: var(--blanco);
     padding: 2rem;
     border-radius: 8px;
-    border-top: 3px solid var(--rojo-elegante);
+    border-top: 3px solid var(--dorado);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
 }
-.servicio-card:hover {
-    transform: translateY(-8px);
-}
+.servicio-card:hover { transform: translateY(-8px); }
 .servicio-card h3 {
     color: var(--azul-oscuro);
     margin-bottom: 1rem;
@@ -356,10 +360,48 @@ nav a:hover, nav a.active {
     font-size: 0.95rem;
 }
 
-/* ---------------- NUESTROS CLIENTES ---------------- */
+/* Elementos decorativos dorados dentro de Servicios */
+.decor-dorado {
+    position: absolute;
+    color: rgba(255, 215, 0, 0.25);
+    font-size: 1.8rem;
+    pointer-events: none;
+}
+.decor-dorado.camion { top: 15%; left: 5%; }
+.decor-dorado.flecha { top: 20%; right: 10%; }
+.decor-dorado.mapa { bottom: 25%; left: 8%; }
+.decor-dorado.escudo { bottom: 20%; right: 8%; }
+
+/* =============================================
+   ONDA DORADA FIJA ABAJO — Se desplaza al scrollear
+   ============================================= */
+.onda-dorada-fija {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    pointer-events: none;
+    z-index: 1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cdefs%3E%3ClinearGradient id='oro' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23B8860B'/%3E%3Cstop offset='50%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23B8860B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23oro)' fill-opacity='0.85' d='M0,90 Q360,30 720,90 T1440,90 L1440,180 L0,180 Z'/%3E%3Ccircle cx='100' cy='120' r='3' fill='%23FFD700' opacity='0.7'/%3E%3Ccircle cx='300' cy='100' r='2' fill='%23FFF8DC' opacity='0.8'/%3E%3Ccircle cx='550' cy='130' r='4' fill='%23FFD700' opacity='0.6'/%3E%3Ccircle cx='850' cy='110' r='3' fill='%23FFF8DC' opacity='0.7'/%3E%3Ccircle cx='1100' cy='125' r='4' fill='%23FFD700' opacity='0.6'/%3E%3Ccircle cx='1350' cy='105' r='2' fill='%23FFF8DC' opacity='0.8'/%3E%3C/svg%3E") no-repeat bottom center;
+    background-size: 100% auto;
+    filter: drop-shadow(0 -5px 15px rgba(212, 175, 55, 0.35));
+}
+
+/* =============================================
+   RESTO DE SECCIONES — Fondo blanco hueso
+   ============================================= */
+.clientes,
+.preguntas-seccion,
+.contacto,
+footer {
+    background: var(--blanco-hueso);
+    position: relative;
+    z-index: 2;
+}
+
 .clientes {
     padding: 5rem 5%;
-    background: linear-gradient(180deg, #fff, var(--gris-claro));
 }
 .clientes .descripcion {
     max-width: 700px;
@@ -380,9 +422,7 @@ nav a:hover, nav a.active {
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     transition: transform 0.3s ease;
 }
-.cliente-card:hover {
-    transform: translateY(-8px);
-}
+.cliente-card:hover { transform: translateY(-8px); }
 .cliente-card img {
     width: 100%;
     height: 180px;
@@ -396,10 +436,8 @@ nav a:hover, nav a.active {
     font-size: 1.05rem;
 }
 
-/* ---------------- PREGUNTAS FRECUENTES ---------------- */
 .preguntas-seccion {
     padding: 5rem 5%;
-    background: var(--blanco);
 }
 .preguntas-seccion .descripcion {
     max-width: 700px;
@@ -432,11 +470,8 @@ details.pregunta summary::after {
     font-size: 1.4rem;
     color: var(--rojo-elegante);
     font-weight: 700;
-    transition: transform 0.25s ease;
 }
-details.pregunta[open] summary::after {
-    content: '−';
-}
+details.pregunta[open] summary::after { content: '−'; }
 details.pregunta p {
     margin-top: 1rem;
     padding-top: 1rem;
@@ -445,10 +480,8 @@ details.pregunta p {
     border-top: 1px solid #eee;
 }
 
-/* ---------------- CONTACTO ---------------- */
 .contacto {
     padding: 5rem 5%;
-    background: linear-gradient(180deg, var(--gris-claro), #fff);
     text-align: center;
 }
 .contacto p {
@@ -468,15 +501,9 @@ details.pregunta p {
     margin-bottom: 0.5rem;
     font-size: 1rem;
 }
-.dato-contacto p {
-    color: #555;
-    margin: 0;
-}
+.dato-contacto p { color: #555; margin: 0; }
 
-/* ---------------- PIE DE PÁGINA ---------------- */
 footer {
-    background: var(--azul-oscuro);
-    color: var(--blanco);
     padding: 4rem 5% 2rem;
 }
 .footer-contenido {
@@ -489,24 +516,18 @@ footer {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
 }
-.footer-logo h3 span {
-    color: var(--rojo-elegante);
-}
-.footer-logo p {
-    color: #aaa;
-}
+.footer-logo h3 span { color: var(--rojo-elegante); }
+.footer-logo p { color: #777; }
 .footer-enlaces a {
     display: block;
-    color: #ccc;
+    color: #555;
     text-decoration: none;
     margin-bottom: 0.7rem;
     transition: color 0.3s ease;
 }
-.footer-enlaces a:hover {
-    color: var(--dorado);
-}
+.footer-enlaces a:hover { color: var(--dorado); }
 .footer-telefonos p {
-    color: #ccc;
+    color: #555;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -518,10 +539,10 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ---------------- WHATSAPP FLOTANTE CON ÍCONO OFICIAL ---------------- */
+/* Botón WhatsApp flotante */
 .whatsapp {
     position: fixed;
-    bottom: 2rem;
+    bottom: 2.5rem;
     right: 2rem;
     background: linear-gradient(135deg, #25d366, #128c7e);
     color: white;
@@ -535,15 +556,15 @@ footer {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     z-index: 99;
 }
-.whatsapp:hover {
-    transform: scale(1.1);
-}
+.whatsapp:hover { transform: scale(1.1); }
 .icono-whatsapp {
     width: 28px;
     height: 28px;
 }
 
-/* ---------------- RESPONSIVO ---------------- */
+/* =============================================
+   RESPONSIVO — Para celular y tablet
+   ============================================= */
 @media(max-width: 1024px) {
     .servicios-grid, .clientes-grid, .contacto-datos {
         grid-template-columns: repeat(2, 1fr);
@@ -563,4 +584,5 @@ footer {
     .flecha { width: 38px; height: 38px; }
     .flecha.izq { left: 5px; }
     .flecha.der { right: 5px; }
+    .onda-dorada-fija { height: 100px; }
 }
