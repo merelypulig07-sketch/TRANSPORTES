@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Barra de Navegación -->
     <header>
         <div class="logo-contenedor">
@@ -26,7 +25,6 @@
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
-
     <!-- Sección Principal con Carrusel -->
     <section class="hero" id="inicio">
         <div class="carrusel-fondo"></div>
@@ -40,7 +38,6 @@
             </div>
         </div>
     </section>
-
     <!-- Datos de la Empresa -->
     <section class="datos-empresa">
         <div class="contenedor">
@@ -58,7 +55,6 @@
             </div>
         </div>
     </section>
-
     <!-- Quiénes Somos con Carrusel de Fotos y Flechas -->
     <section class="nosotros" id="nosotros">
         <div class="contenedor">
@@ -80,7 +76,6 @@
             </div>
         </div>
     </section>
-
     <!-- Servicios -->
     <section class="servicios" id="servicios">
         <div class="contenedor">
@@ -106,7 +101,6 @@
             </div>
         </div>
     </section>
-
     <!-- Nuestros Clientes -->
     <section class="clientes" id="clientes">
         <div class="contenedor">
@@ -129,41 +123,34 @@
             </div>
         </div>
     </section>
-
     <!-- Preguntas Frecuentes -->
     <section class="preguntas-seccion" id="preguntas">
         <div class="contenedor">
             <span class="etiqueta">Preguntas Frecuentes</span>
             <h2>¿Tiene alguna duda?</h2>
             <p class="descripcion">Resolvemos las inquietudes más comunes sobre nuestros servicios de transporte y logística.</p>
-
             <details class="pregunta">
                 <summary>¿A qué destinos realizan envíos?</summary>
                 <p>Realizamos envíos a nivel nacional, cubriendo las principales ciudades, puertos y regiones del Ecuador.</p>
             </details>
-
             <details class="pregunta">
                 <summary>¿Cuáles son los tiempos de entrega?</summary>
                 <p>Depende del destino y tipo de carga. Generalmente entre 3 y 7 días a nivel nacional. Le brindamos un estimado al momento de cotizar.</p>
             </details>
-
             <details class="pregunta">
                 <summary>¿El servicio incluye seguro de carga?</summary>
                 <p>Sí, todas nuestras cargas cuentan con cobertura contra todo riesgo. También puede contratar coberturas adicionales según su necesidad.</p>
             </details>
-
             <details class="pregunta">
                 <summary>¿Cómo solicito una cotización?</summary>
                 <p>Puede llamarnos al 0994588225, escribirnos por WhatsApp o llenar nuestros datos en la sección de contacto. Le responderemos de inmediato.</p>
             </details>
-
             <details class="pregunta">
                 <summary>¿Qué tipos de carga transportan?</summary>
                 <p>Transporte de carga general, alimentos, productos industriales, carga pesada y voluminosa. Consúltenos su caso especial.</p>
             </details>
         </div>
     </section>
-
     <!-- Contacto -->
     <section class="contacto" id="contacto">
         <div class="contenedor">
@@ -191,7 +178,6 @@
             <a href="https://wa.me/5930994588225" target="_blank" class="btn principal">💬 Escribir por WhatsApp</a>
         </div>
     </section>
-
     <!-- Pie de página -->
     <footer>
         <div class="footer-contenido">
@@ -217,25 +203,20 @@
             © 2026 KIA & JOELOGÍSTICA S.A. — Resolución N°148-09-2024ANT — Todos los derechos reservados
         </div>
     </footer>
-
     <!-- Botón WhatsApp flotante -->
     <a href="https://wa.me/5930994588225" target="_blank" class="whatsapp">💬</a>
-
     <!-- Script para el carrusel de Quiénes Somos -->
     <script>
         let indice = 0;
         const imagenes = document.querySelectorAll('.carrusel-img');
-
         function mostrar(n) {
             imagenes.forEach(img => img.classList.remove('activa'));
             indice = (n + imagenes.length) % imagenes.length;
             imagenes[indice].classList.add('activa');
         }
-
         function moverCarrusel(n) {
             mostrar(indice + n);
         }
     </script>
-
 </body>
 </html>
