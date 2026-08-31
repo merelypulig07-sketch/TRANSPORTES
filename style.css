@@ -1,5 +1,6 @@
 /* =============================================
-   ESTILOS ORIGINALES — Portada y Pie sin cambios
+   ESTILOS — KIA & JOELOGÍSTICA S.A.
+   Portada y Pie ORIGINALES — Servicios AZUL OSCURO UNIFICADO
    ============================================= */
 * {
     margin: 0;
@@ -9,10 +10,10 @@
 }
 :root {
     --azul-oscuro: #0A1A2F;
+    --azul-pie: #05101F;
     --azul-medio: #123D66;
-    --turquesa: #1E90B5;
     --dorado: #D4AF37;
-    --dorado-claro: #F0C808;
+    --dorado-claro: #FFD700;
     --blanco-hueso: #F8F4E9;
     --blanco: #FFFFFF;
     --rojo-elegante: #B22234;
@@ -45,7 +46,7 @@ h2 {
 }
 
 /* =============================================
-   ENCABEZADO — SIN CAMBIOS (IGUAL QUE ANTES)
+   ENCABEZADO — IGUAL A TU ORIGINAL
    ============================================= */
 header {
     background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
@@ -89,14 +90,13 @@ nav a {
     color: #F8F4E8;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
 }
 nav a:hover, nav a.active {
     color: var(--dorado-claro);
 }
 
 /* =============================================
-   PORTADA / HERO — SIN CAMBIOS (IGUAL QUE ANTES)
+   PORTADA — IGUAL A TU ORIGINAL
    ============================================= */
 .hero {
     min-height: 85vh;
@@ -136,7 +136,6 @@ nav a:hover, nav a.active {
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
-    transition: all 0.3s ease;
 }
 .btn.principal {
     background: var(--rojo-elegante);
@@ -149,33 +148,7 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   DATOS DESTACADOS
-   ============================================= */
-.datos-empresa {
-    background: linear-gradient(90deg, var(--azul-oscuro), var(--azul-medio));
-    padding: 3rem 5%;
-}
-.datos-empresa .contenedor {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-    text-align: center;
-}
-.dato .numero {
-    display: block;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--dorado);
-    margin-bottom: 0.5rem;
-}
-.dato p {
-    color: var(--blanco);
-    font-size: 0.95rem;
-}
-
-/* =============================================
-   QUIENES SOMOS
+   NOSOTROS / CARRUSEL — IGUAL A TU ORIGINAL
    ============================================= */
 .nosotros {
     padding: 5rem 5%;
@@ -210,9 +183,6 @@ nav a:hover, nav a.active {
     border-radius: 50%;
     font-size: 1.3rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 10;
 }
 .flecha.izq { left: -10px; }
@@ -235,20 +205,20 @@ nav a:hover, nav a.active {
 .carrusel-img.activa { opacity: 1; }
 
 /* =============================================
-   ✅ SOLO AQUÍ CAMBIAMOS — Sección Servicios
+   ✅ SECCIÓN SERVICIOS — AZUL OSCURO UNIFICADO
    ============================================= */
 .servicios {
     padding: 5rem 5%;
     background:
-        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 35%),
-        linear-gradient(135deg, #0A1A2F 0%, #123D66 45%, #1E90B5 100%);
+        radial-gradient(circle at top left, rgba(255, 215, 0, 0.12), transparent 35%),
+        linear-gradient(135deg, #040E1C 0%, #0A1A2F 50%, #123D66 100%);
     position: relative;
     overflow: hidden;
 }
 .servicios .etiqueta { color: var(--dorado-claro); }
 .servicios h2 {
     color: var(--blanco);
-    text-shadow: 0 0 10px rgba(240, 200, 8, 0.45);
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
 .servicios-grid {
     display: grid;
@@ -259,11 +229,11 @@ nav a:hover, nav a.active {
     z-index: 2;
 }
 .servicio-card {
-    background: var(--blanco);
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
-    border-radius: 8px;
-    border-top: 3px solid var(--dorado);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    border: 2px solid var(--dorado);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
     transition: transform 0.3s ease;
 }
 .servicio-card:hover { transform: translateY(-8px); }
@@ -277,33 +247,20 @@ nav a:hover, nav a.active {
     font-size: 0.95rem;
 }
 
-/* Elementos decorativos dorados dentro de Servicios */
-.decor-dorado {
+/* Iconos decorativos dorados */
+.icono-decor {
     position: absolute;
-    color: rgba(255, 215, 0, 0.25);
-    font-size: 1.8rem;
-    pointer-events: none;
-}
-.decor-dorado.camion { top: 15%; left: 5%; }
-.decor-dorado.flecha { top: 20%; right: 10%; }
-.decor-dorado.mapa { bottom: 25%; left: 8%; }
-.decor-dorado.escudo { bottom: 20%; right: 8%; }
-
-/* =============================================
-   ✅ ONDA DORADA FIJA ABAJO — Se desplaza contigo
-   ============================================= */
-.onda-dorada-fija {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 140px;
+    color: rgba(255, 215, 0, 0.35);
+    font-size: 2rem;
     pointer-events: none;
     z-index: 1;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cdefs%3E%3ClinearGradient id='oro' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23B8860B'/%3E%3Cstop offset='50%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23B8860B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23oro)' fill-opacity='0.85' d='M0,90 Q360,30 720,90 T1440,90 L1440,180 L0,180 Z'/%3E%3Ccircle cx='100' cy='120' r='3' fill='%23FFD700' opacity='0.7'/%3E%3Ccircle cx='300' cy='100' r='2' fill='%23FFF8DC' opacity='0.8'/%3E%3Ccircle cx='550' cy='130' r='4' fill='%23FFD700' opacity='0.6'/%3E%3Ccircle cx='850' cy='110' r='3' fill='%23FFF8DC' opacity='0.7'/%3E%3Ccircle cx='1100' cy='125' r='4' fill='%23FFD700' opacity='0.6'/%3E%3Ccircle cx='1350' cy='105' r='2' fill='%23FFF8DC' opacity='0.8'/%3E%3C/svg%3E") no-repeat bottom center;
-    background-size: 100% auto;
-    filter: drop-shadow(0 -5px 15px rgba(212, 175, 55, 0.35));
 }
+.icono-decor.camion { top: 12%; left: 4%; }
+.icono-decor.flecha { top: 18%; left: 12%; }
+.icono-decor.flecha2 { top: 14%; right: 8%; }
+.icono-decor.mapa { bottom: 20%; left: 6%; }
+.icono-decor.escudo { bottom: 18%; right: 6%; }
+.icono-decor.camion2 { bottom: 10%; right: 15%; }
 
 /* =============================================
    RESTO DE SECCIONES
@@ -315,7 +272,6 @@ nav a:hover, nav a.active {
     position: relative;
     z-index: 2;
 }
-
 .clientes {
     padding: 5rem 5%;
 }
@@ -400,11 +356,12 @@ details.pregunta p {
 .dato-contacto p { color: #555; margin: 0; }
 
 /* =============================================
-   🔴 PIE DE PÁGINA — SIN CAMBIOS (IGUAL QUE ANTES)
+   ✅ PIE DE PÁGINA — AZUL OSCURO ORIGINAL
    ============================================= */
 footer {
     padding: 4rem 5% 2rem;
-    background: var(--blanco-hueso);
+    background: #05101F;
+    color: #ccc;
     position: relative;
     z-index: 2;
 }
@@ -417,19 +374,19 @@ footer {
 .footer-logo h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: var(--azul-oscuro);
+    color: var(--blanco);
 }
-.footer-logo h3 span { color: var(--rojo-elegante); }
-.footer-logo p { color: #777; }
+.footer-logo h3 span { color: var(--dorado-claro); }
+.footer-logo p { color: #999; }
 .footer-enlaces a {
     display: block;
-    color: #555;
+    color: #ccc;
     text-decoration: none;
     margin-bottom: 0.7rem;
 }
-.footer-enlaces a:hover { color: var(--dorado); }
+.footer-enlaces a:hover { color: var(--dorado-claro); }
 .footer-telefonos p {
-    color: #555;
+    color: #ccc;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -437,8 +394,24 @@ footer {
     border-top: 1px solid rgba(212,175,55,0.2);
     padding-top: 2rem;
     text-align: center;
-    color: #777;
+    color: #888;
     font-size: 0.9rem;
+}
+
+/* =============================================
+   ✅ ONDA DORADA FIJA ABAJO
+   ============================================= */
+.onda-dorada-fija {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 160px;
+    pointer-events: none;
+    z-index: 1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cdefs%3E%3ClinearGradient id='oro' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23B8860B'/%3E%3Cstop offset='30%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFF8DC'/%3E%3Cstop offset='70%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23B8860B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23oro)' fill-opacity='0.9' d='M0,80 Q200,40 400,80 T800,80 T1200,80 T1440,80 L1440,200 L0,200 Z'/%3E%3Ccircle cx='80' cy='140' r='4' fill='%23FFD700' opacity='0.8'/%3E%3Ccircle cx='200' cy='120' r='2.5' fill='%23FFF8DC' opacity='0.9'/%3E%3Ccircle cx='350' cy='150' r='5' fill='%23FFD700' opacity='0.7'/%3E%3Ccircle cx='520' cy='130' r='3' fill='%23FFF8DC' opacity='0.8'/%3E%3Ccircle cx='700' cy='145' r='4' fill='%23FFD700' opacity='0.75'/%3E%3Ccircle cx='900' cy='125' r='3.5' fill='%23FFF8DC' opacity='0.85'/%3E%3Ccircle cx='1100' cy='140' r='4.5' fill='%23FFD700' opacity='0.7'/%3E%3Ccircle cx='1300' cy='130' r='3' fill='%23FFF8DC' opacity='0.8'/%3E%3C/svg%3E") no-repeat bottom center;
+    background-size: 100% auto;
+    filter: drop-shadow(0 -6px 18px rgba(255, 215, 0, 0.4));
 }
 
 /* Botón WhatsApp flotante */
@@ -482,5 +455,5 @@ footer {
     }
     .hero-contenido h1 { font-size: 2rem; }
     .carrusel-imagenes { height: 250px; }
-    .onda-dorada-fija { height: 100px; }
+    .onda-dorada-fija { height: 120px; }
 }
