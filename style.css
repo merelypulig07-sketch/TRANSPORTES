@@ -7,6 +7,71 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+   :root {
+    --azul-oscuro: #0A1A2F;
+    --dorado: #D4AF37;
+    --dorado-claro: #FFD700;
+    --blanco-hueso: #F8F4E9;
+    --blanco: #FFFFFF;
+    --rojo-elegante: #B22234;
+}
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 5%;
+    background: var(--blanco-hueso);
+    position: relative;
+    /* Tu imagen de fondo original */
+    background-image: url('tu-imagen-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-contenido h2 {
+    font-size: 1.1rem;
+    color: var(--dorado);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.hero-contenido h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+.hero-contenido h1 span {
+    color: var(--dorado-claro);
+}
+.hero-contenido p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+.botones-hero {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+.btn {
+    padding: 0.95rem 2.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+}
+.btn.principal {
+    background: var(--rojo-elegante);
+    color: var(--blanco);
+}
+.btn.secundario {
+    border: 2px solid var(--dorado);
+    color: var(--dorado);
+    background: transparent;
+}
 }
 :root {
     --azul-oscuro: #0A1A2F;
