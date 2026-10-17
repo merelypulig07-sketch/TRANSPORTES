@@ -1,77 +1,11 @@
 /* =============================================
    ESTILOS — KIA & JOELOGÍSTICA S.A.
-   Portada y Pie ORIGINALES — Servicios AZUL OSCURO UNIFICADO
    ============================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-   :root {
-    --azul-oscuro: #0A1A2F;
-    --dorado: #D4AF37;
-    --dorado-claro: #FFD700;
-    --blanco-hueso: #F8F4E9;
-    --blanco: #FFFFFF;
-    --rojo-elegante: #B22234;
-}
-
-.hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    padding: 5rem 5%;
-    background: var(--blanco-hueso);
-    position: relative;
-    /* Tu imagen de fondo original */
-    background-image: url('tu-imagen-fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.hero-contenido h2 {
-    font-size: 1.1rem;
-    color: var(--dorado);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-.hero-contenido h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-.hero-contenido h1 span {
-    color: var(--dorado-claro);
-}
-.hero-contenido p {
-    font-size: 1.05rem;
-    color: #555;
-    margin-bottom: 2.5rem;
-    max-width: 600px;
-}
-.botones-hero {
-    display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-}
-.btn {
-    padding: 0.95rem 2.2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
-    display: inline-block;
-}
-.btn.principal {
-    background: var(--rojo-elegante);
-    color: var(--blanco);
-}
-.btn.secundario {
-    border: 2px solid var(--dorado);
-    color: var(--dorado);
-    background: transparent;
-}
 }
 :root {
     --azul-oscuro: #0A1A2F;
@@ -96,7 +30,7 @@ body {
 }
 .etiqueta {
     display: inline-block;
-    color: var(--rojo-elegante);
+    color: var(--dorado);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -104,14 +38,14 @@ body {
     margin-bottom: 0.5rem;
 }
 h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--azul-oscuro);
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
 /* =============================================
-   ENCABEZADO — IGUAL A TU ORIGINAL
+   ENCABEZADO
    ============================================= */
 header {
     background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
@@ -161,19 +95,36 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   PORTADA — IGUAL A TU ORIGINAL
+   PORTADA CON TU IMAGEN DE FONDO
    ============================================= */
 .hero {
     min-height: 85vh;
     display: flex;
     align-items: center;
     padding: 5rem 5%;
-    background: var(--blanco-hueso);
+    background-image: url('fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 26, 47, 0.6);
+    z-index: 1;
+}
+.hero-contenido {
+    position: relative;
+    z-index: 2;
 }
 .hero-contenido h2 {
     font-size: 1.1rem;
-    color: var(--dorado);
+    color: var(--dorado-claro);
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
@@ -181,14 +132,16 @@ nav a:hover, nav a.active {
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+    color: var(--blanco);
 }
 .hero-contenido h1 span {
     color: var(--dorado-claro);
 }
 .hero-contenido p {
     font-size: 1.05rem;
-    color: #999;
+    color: #ddd;
     margin-bottom: 2.5rem;
+    max-width: 600px;
 }
 .botones-hero {
     display: flex;
@@ -201,6 +154,7 @@ nav a:hover, nav a.active {
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
+    display: inline-block;
 }
 .btn.principal {
     background: var(--rojo-elegante);
@@ -208,12 +162,12 @@ nav a:hover, nav a.active {
 }
 .btn.secundario {
     border: 2px solid var(--dorado);
-    color: var(--dorado);
+    color: var(--dorado-claro);
     background: transparent;
 }
 
 /* =============================================
-   NOSOTROS / CARRUSEL — IGUAL A TU ORIGINAL
+   QUIENES SOMOS / CARRUSEL
    ============================================= */
 .nosotros {
     padding: 5rem 5%;
@@ -264,13 +218,17 @@ nav a:hover, nav a.active {
     height: 100%;
     object-fit: cover;
     position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
-.carrusel-img.activa { opacity: 1; }
+.carrusel-img.activa {
+    opacity: 1;
+}
 
 /* =============================================
-   ✅ SECCIÓN SERVICIOS — AZUL OSCURO UNIFICADO
+   SECCIÓN SERVICIOS — AZUL OSCURO UNIFICADO
    ============================================= */
 .servicios {
     padding: 5rem 5%;
@@ -311,8 +269,6 @@ nav a:hover, nav a.active {
     color: #555;
     font-size: 0.95rem;
 }
-
-/* Iconos decorativos dorados */
 .icono-decor {
     position: absolute;
     color: rgba(255, 215, 0, 0.35);
@@ -328,17 +284,11 @@ nav a:hover, nav a.active {
 .icono-decor.camion2 { bottom: 10%; right: 15%; }
 
 /* =============================================
-   RESTO DE SECCIONES
+   NUESTROS SOCIOS / CLIENTES
    ============================================= */
-.clientes,
-.preguntas-seccion,
-.contacto {
-    background: var(--blanco-hueso);
-    position: relative;
-    z-index: 2;
-}
 .clientes {
     padding: 5rem 5%;
+    background: var(--blanco-hueso);
 }
 .clientes .descripcion {
     max-width: 700px;
@@ -370,8 +320,12 @@ nav a:hover, nav a.active {
     color: var(--azul-oscuro);
 }
 
+/* =============================================
+   PREGUNTAS FRECUENTES
+   ============================================= */
 .preguntas-seccion {
     padding: 5rem 5%;
+    background: var(--blanco-hueso);
 }
 .preguntas-seccion .descripcion {
     max-width: 700px;
@@ -398,9 +352,13 @@ details.pregunta p {
     border-top: 1px solid #eee;
 }
 
+/* =============================================
+   CONTACTO
+   ============================================= */
 .contacto {
     padding: 5rem 5%;
     text-align: center;
+    background: var(--blanco-hueso);
 }
 .contacto p {
     max-width: 600px;
@@ -411,7 +369,6 @@ details.pregunta p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-bottom: 3rem;
 }
 .dato-contacto h3 {
     color: var(--azul-oscuro);
@@ -421,7 +378,7 @@ details.pregunta p {
 .dato-contacto p { color: #555; margin: 0; }
 
 /* =============================================
-   ✅ PIE DE PÁGINA — AZUL OSCURO ORIGINAL
+   PIE DE PÁGINA
    ============================================= */
 footer {
     padding: 4rem 5% 2rem;
@@ -464,7 +421,7 @@ footer {
 }
 
 /* =============================================
-   ✅ ONDA DORADA FIJA ABAJO
+   ONDA DORADA FIJA
    ============================================= */
 .onda-dorada-fija {
     position: fixed;
@@ -479,7 +436,9 @@ footer {
     filter: drop-shadow(0 -6px 18px rgba(255, 215, 0, 0.4));
 }
 
-/* Botón WhatsApp flotante */
+/* =============================================
+   WHATSAPP
+   ============================================= */
 .whatsapp {
     position: fixed;
     bottom: 2.5rem;
@@ -497,10 +456,7 @@ footer {
     z-index: 99;
 }
 .whatsapp:hover { transform: scale(1.1); }
-.icono-whatsapp {
-    width: 28px;
-    height: 28px;
-}
+.icono-whatsapp { width: 28px; height: 28px; }
 
 /* =============================================
    RESPONSIVO
@@ -513,12 +469,13 @@ footer {
         grid-template-columns: 1fr;
     }
     .carrusel-imagenes { height: 300px; }
+    .hero-contenido h1 { font-size: 2.2rem; }
 }
 @media(max-width: 600px) {
     .servicios-grid, .clientes-grid, .contacto-datos {
         grid-template-columns: 1fr;
     }
-    .hero-contenido h1 { font-size: 2rem; }
+    .hero-contenido h1 { font-size: 1.8rem; }
     .carrusel-imagenes { height: 250px; }
     .onda-dorada-fija { height: 120px; }
 }
