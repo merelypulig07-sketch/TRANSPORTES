@@ -95,7 +95,7 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   PORTADA CON TU IMAGEN DE FONDO
+   PORTADA
    ============================================= */
 .hero {
     min-height: 85vh;
@@ -228,7 +228,7 @@ nav a:hover, nav a.active {
 }
 
 /* =============================================
-   SECCIÓN SERVICIOS — AZUL OSCURO UNIFICADO
+   SECCIÓN SERVICIOS
    ============================================= */
 .servicios {
     padding: 5rem 5%;
@@ -284,15 +284,61 @@ nav a:hover, nav a.active {
 .icono-decor.camion2 { bottom: 10%; right: 15%; }
 
 /* =============================================
+   PARTE FINAL CON FONDO DIFUMINADO
+   ============================================= */
+.parte-final-difuminado {
+    background:
+        radial-gradient(circle at top left, rgba(18, 61, 102, 0.9), transparent 32%),
+        radial-gradient(circle at top right, rgba(10, 26, 47, 0.95), transparent 32%),
+        linear-gradient(180deg, #05101F 0%, #0A1A2F 50%, #123D66 100%);
+    color: #ccc;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+.parte-final-difuminado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 8% 15%, rgba(212, 175, 55, 0.12), transparent 28%),
+        radial-gradient(circle at 92% 8%, rgba(178, 34, 52, 0.12), transparent 28%);
+    pointer-events: none;
+    z-index: -1;
+}
+.parte-final-difuminado .clientes,
+.parte-final-difuminado .preguntas-seccion,
+.parte-final-difuminado .contacto {
+    background: transparent;
+}
+.parte-final-difuminado .cliente-card,
+.parte-final-difuminado .pregunta,
+.parte-final-difuminado .dato-contacto {
+    background: rgba(255, 255, 255, 0.92);
+    color: #333;
+    border: 2px solid var(--dorado);
+}
+.parte-final-difuminado h2 {
+    color: var(--blanco);
+}
+.parte-final-difuminado .etiqueta {
+    color: var(--dorado-claro);
+}
+.parte-final-difuminado .descripcion {
+    color: #ddd;
+}
+
+/* =============================================
    NUESTROS SOCIOS / CLIENTES
    ============================================= */
 .clientes {
     padding: 5rem 5%;
-    background: var(--blanco-hueso);
 }
 .clientes .descripcion {
     max-width: 700px;
-    color: #666;
     margin-bottom: 3rem;
 }
 .clientes-grid {
@@ -301,10 +347,8 @@ nav a:hover, nav a.active {
     gap: 2.5rem;
 }
 .cliente-card {
-    background: var(--blanco);
     padding: 2rem;
     border-radius: 10px;
-    border: 2px solid var(--dorado);
     text-align: center;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
@@ -325,19 +369,16 @@ nav a:hover, nav a.active {
    ============================================= */
 .preguntas-seccion {
     padding: 5rem 5%;
-    background: var(--blanco-hueso);
 }
 .preguntas-seccion .descripcion {
     max-width: 700px;
-    color: #666;
     margin-bottom: 3rem;
 }
 details.pregunta {
     max-width: 800px;
     margin: 0 auto 1rem;
     padding: 1.5rem 1.8rem;
-    background: var(--blanco);
-    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
 }
 details.pregunta summary {
     font-size: 1.05rem;
@@ -358,32 +399,34 @@ details.pregunta p {
 .contacto {
     padding: 5rem 5%;
     text-align: center;
-    background: var(--blanco-hueso);
 }
 .contacto p {
     max-width: 600px;
     margin: 0 auto 3rem;
-    color: #555;
 }
 .contacto-datos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
+.dato-contacto {
+    padding: 1.5rem;
+    border-radius: 8px;
+}
 .dato-contacto h3 {
     color: var(--azul-oscuro);
     margin-bottom: 0.5rem;
     font-size: 1rem;
 }
-.dato-contacto p { color: #555; margin: 0; }
+.dato-contacto p { margin: 0; }
 
 /* =============================================
    PIE DE PÁGINA
    ============================================= */
 footer {
     padding: 4rem 5% 2rem;
-    background: #05101F;
-    color: #ccc;
+    background: transparent;
+    border-top: 1px solid rgba(212,175,55,0.25);
     position: relative;
     z-index: 2;
 }
@@ -399,7 +442,7 @@ footer {
     color: var(--blanco);
 }
 .footer-logo h3 span { color: var(--dorado-claro); }
-.footer-logo p { color: #999; }
+.footer-logo p { color: #aaa; }
 .footer-enlaces a {
     display: block;
     color: #ccc;
