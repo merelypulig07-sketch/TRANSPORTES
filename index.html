@@ -26,8 +26,7 @@
         </nav>
     </header>
 
-    <!-- Portada — IGUAL A COMO LA TENÍAS -->
-       <!-- TU PORTADA — TAL COMO LA TENÍAS -->
+    <!-- ✅ PORTADA CON TU IMAGEN -->
     <section class="hero">
         <div class="hero-contenido">
             <h2>Soluciones Logísticas Integrales</h2>
@@ -39,7 +38,8 @@
             </div>
         </div>
     </section>
-    <!-- Sección Nosotros / Carrusel — IGUAL A COMO LA TENÍAS -->
+
+    <!-- ✅ QUIENES SOMOS / CARRUSEL — TUS IMÁGENES EXACTAS -->
     <section class="nosotros" id="nosotros">
         <div class="contenedor">
             <div class="nosotros-texto">
@@ -51,19 +51,18 @@
             <div class="nosotros-carrusel">
                 <button class="flecha izq">&lt;</button>
                 <div class="carrusel-imagenes">
-                    <img src="imagen1.jpg" alt="Flota de camiones" class="carrusel-img activa">
-                    <img src="imagen2.jpg" alt="Carga y Logística" class="carrusel-img">
-                    <img src="imagen3.jpg" alt="Entrega Segura" class="carrusel-img">
+                    <img src="fondo.png" alt="Flota de camiones" class="carrusel-img activa">
+                    <img src="fondo2.jpeg" alt="Carga y Logística" class="carrusel-img">
+                    <img src="fondo3.jpeg" alt="Entrega Segura" class="carrusel-img">
                 </div>
                 <button class="flecha der">&gt;</button>
             </div>
         </div>
     </section>
 
-    <!-- ✅ SECCIÓN SERVICIOS — AZUL OSCURO UNIFICADO + DETALLES DORADOS -->
+    <!-- ✅ SECCIÓN SERVICIOS — NUEVA, SIN TOCAR LO DEMÁS -->
     <section class="servicios" id="servicios">
         <div class="contenedor">
-            <!-- Iconos decorativos dorados -->
             <div class="icono-decor camion">🚛</div>
             <div class="icono-decor flecha">➡️</div>
             <div class="icono-decor flecha2">➡️</div>
@@ -95,7 +94,7 @@
         </div>
     </section>
 
-    <!-- Sección Nuestros Socios / Clientes -->
+    <!-- ✅ NUESTROS SOCIOS — TUS IMÁGENES EXACTAS -->
     <section class="clientes" id="clientes">
         <div class="contenedor">
             <span class="etiqueta">Nuestros Socios</span>
@@ -103,16 +102,16 @@
             <p class="descripcion">Empresas que han depositado su confianza en nuestros servicios logísticos.</p>
             <div class="clientes-grid">
                 <div class="cliente-card">
-                    <img src="cliente1.png" alt="Cliente 1">
-                    <p>Empresa 1</p>
+                    <img src="Cerveceria.png" alt="CERVEZERÍA NACIONAL">
+                    <p>CERVEZERÍA NACIONAL</p>
                 </div>
                 <div class="cliente-card">
-                    <img src="cliente2.png" alt="Cliente 2">
-                    <p>Empresa 2</p>
+                    <img src="TUTI.jpeg" alt="TUTI">
+                    <p>TUTI</p>
                 </div>
                 <div class="cliente-card">
-                    <img src="cliente3.png" alt="Cliente 3">
-                    <p>Empresa 3</p>
+                    <img src="supermercado.jpeg" alt="MAX">
+                    <p>MAX</p>
                 </div>
             </div>
         </div>
@@ -162,7 +161,7 @@
         </div>
     </section>
 
-    <!-- ✅ Pie de página — AZUL OSCURO ORIGINAL, IGUAL QUE ANTES -->
+    <!-- ✅ PIE DE PÁGINA ORIGINAL -->
     <footer>
         <div class="footer-contenido">
             <div class="footer-logo">
@@ -188,7 +187,7 @@
         </div>
     </footer>
 
-    <!-- ✅ Onda dorada fija abajo -->
+    <!-- Onda dorada fija -->
     <div class="onda-dorada-fija"></div>
 
     <!-- Botón WhatsApp flotante -->
@@ -197,5 +196,35 @@
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.05-.172-.289-.017-.444.163-.583.163-.126.364-.327.546-.49.182-.164.242-.289.364-.482.122-.193.061-.354-.03-.49-.091-.136-1.63-1.97-1.995-2.67-.347-.666-.347-1.235-.347-1.235s-.037-.263-.263-.377c-.227-.114-.593-.193-.89-.193-.296 0-.74.073-1.127.372-.386.299-1.475 1.443-1.475 3.512 0 2.068 1.51 4.066 1.724 4.363.214.297 2.995 4.563 7.242 6.408 1.014.44 1.804.703 2.416.903 1.018.332 1.95.284 2.688.173.823-.123 2.533-1.034 2.896-2.036.363-1.002.363-1.86.254-2.036-.11-.175-.403-.283-.843-.502z"/>
         </svg>
     </a>
+
+    <!-- ✅ FUNCIONAMIENTO DEL CARRUSEL -->
+    <script>
+        const imagenes = document.querySelectorAll('.carrusel-img');
+        const flechaIzq = document.querySelector('.flecha.izq');
+        const flechaDer = document.querySelector('.flecha.der');
+        let indiceActual = 0;
+
+        function mostrarImagen(indice) {
+            imagenes.forEach((img, i) => {
+                img.classList.remove('activa');
+                if (i === indice) img.classList.add('activa');
+            });
+        }
+
+        flechaDer.addEventListener('click', () => {
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            mostrarImagen(indiceActual);
+        });
+
+        flechaIzq.addEventListener('click', () => {
+            indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+            mostrarImagen(indiceActual);
+        });
+
+        setInterval(() => {
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            mostrarImagen(indiceActual);
+        }, 5000);
+    </script>
 </body>
 </html>
