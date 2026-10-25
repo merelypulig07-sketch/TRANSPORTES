@@ -1,0 +1,7 @@
+# Archivos y carpetas que NUNCA debes subir a GitHub
+node_modules/
+.env
+*.log
+.DS_Store
+dist/
+build/

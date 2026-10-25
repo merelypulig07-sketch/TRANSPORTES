@@ -1,0 +1,137 @@
+<!-- ============================================================
+  PANEL DE ADMIN (login + ver cotizaciones recibidas)
+  - Guarda este archivo como "admin.html" en la RAIZ de tu repo
+    (junto a tu index.html). Quedara en:
+    https://merelypulig07-sketch.github.io/TRANSPORTES/admin.html
+  - Cambia 'https://TU-API.onrender.com' por la URL de Render.
+  - Usuario por defecto: admin@kiajoel.com  /  admin123
+    (lo puedes cambiar en el archivo seed.js con ADMIN_PASSWORD)
+============================================================ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - KIA & JOELOGÍSTICA</title>
+<style>
+  * { box-sizing: border-box; font-family: Arial, sans-serif; }
+  body { background: #0f2747; margin: 0; padding: 20px; }
+  .contenedor { max-width: 950px; margin: 0 auto; background: #fff; border-radius: 10px; padding: 25px; }
+  h1 { color: #0f2747; font-size: 22px; }
+  input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; }
+  button { background: #c8102e; color: #fff; border: none; padding: 10px 18px; border-radius: 5px; cursor: pointer; font-size: 15px; }
+  button:hover { opacity: .85; }
+  table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
+  th { background: #f5c518; color: #0f2747; }
+  .error { color: red; }
+  .cerrar { float: right; background: #666; }
+  .tabla-scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <!-- VISTA: LOGIN -->
+  <div id="vistaLogin">
+    <h1>🔐 Panel de Administración</h1>
+    <p>Ingresa con tu correo de administrador:</p>
+    <input type="email" id="email" placeholder="Correo" value="admin@kiajoel.com">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    <p id="errorLogin" class="error"></p>
+  </div>
+
+  <!-- VISTA: COTIZACIONES RECIBIDAS -->
+  <div id="vistaPanel" style="display:none">
+    <h1>📋 Cotizaciones Recibidas
+      <button class="cerrar" onclick="salir()">Cerrar sesión</button>
+    </h1>
+    <button onclick="cargar()">🔄 Actualizar</button>
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th><th>Nombre</th><th>Teléfono</th>
+            <th>Origen → Destino</th><th>Tipo / Peso</th><th>Mensaje</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="tabla"></tbody>
+      </table>
+    </div>
+    <p id="vacio"></p>
+  </div>
+
+</div>
+
+<script>
+const API = 'https://TU-API.onrender.com'; // ← REEMPLAZA por tu URL de Render
+let token = localStorage.getItem('token_admin');
+
+async function login() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const resp = await fetch(API + '/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  const data = await resp.json();
+  if (!resp.ok) {
+    document.getElementById('errorLogin').textContent = data.error || 'Error al entrar';
+    return;
+  }
+  localStorage.setItem('token_admin', data.token);
+  token = data.token;
+  mostrarPanel();
+}
+
+function salir() {
+  localStorage.removeItem('token_admin');
+  location.reload();
+}
+
+function mostrarPanel() {
+  document.getElementById('vistaLogin').style.display = 'none';
+  document.getElementById('vistaPanel').style.display = 'block';
+  cargar();
+}
+
+async function cargar() {
+  const resp = await fetch(API + '/api/cotizaciones', {
+    headers: { 'Authorization': 'Bearer ' + token }
+  });
+  if (resp.status === 401) { salir(); return; }
+  const lista = await resp.json();
+  const tbody = document.getElementById('tabla');
+  tbody.innerHTML = '';
+  document.getElementById('vacio').textContent =
+    lista.length === 0 ? 'Aún no hay cotizaciones. Envía una desde el formulario para probar.' : '';
+
+  lista.forEach(c => {
+    const fila = tbody.insertRow();
+    fila.innerHTML = `
+      <td>${new Date(c.fechaCreacion).toLocaleString('es-EC')}</td>
+      <td>${c.nombre || ''}</td>
+      <td>${c.telefono || ''}</td>
+      <td>${c.origen || ''} → ${c.destino || ''}</td>
+      <td>${c.tipoCarga || ''}<br><small>${c.peso || ''}</small></td>
+      <td>${c.mensaje || ''}</td>
+      <td><button onclick="eliminar('${c._id}')">Eliminar</button></td>`;
+  });
+}
+
+async function eliminar(id) {
+  if (!confirm('¿Eliminar esta cotización?')) return;
+  await fetch(API + '/api/cotizaciones/' + id, {
+    method: 'DELETE',
+    headers: { 'Authorization': 'Bearer ' + token }
+  });
+  cargar();
+}
+
+// Si ya habias iniciado sesion antes, entra directo
+if (token) mostrarPanel();
+</script>
+</body>
+</html>
