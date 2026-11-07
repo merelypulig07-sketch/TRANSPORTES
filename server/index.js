@@ -1,5 +1,3 @@
-const Admin = mongoose.model('Admin', new mongoose.Schema({ email: String, password: String }));
-const Servicio = mongoose.model('Servicio', new mongoose.Schema({ nombre: String, descripcion: String, icono: String }));
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -13,7 +11,6 @@ const JWT_SECRET = "proyecto_transporte_kia_joel_secreto_2026";
 const GEMINI_API_KEY = "";
 const CORS_ORIGIN = "https://merelypulig07-sketch.github.io";
 const PORT = 4000;
-const ADMIN_PASSWORD = "admin123";
 
 const app = express();
 app.use(express.json());
@@ -107,12 +104,12 @@ app.get('/', (req, res) => res.send('API de KIA & JOELOGISTICA funcionando'));
 
 // ---------- CONEXIÓN Y ARRANQUE ----------
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log("✅ Conectado a MongoDB"))
+  .then(() => {
+    console.log("✅ Conectado a MongoDB");
+    inicializarBaseDatos(); // ← LLAMAR A LA FUNCIÓN AQUÍ ✅
+  })
   .catch(err => console.log("❌ Error:", err.message));
 
-app.listen(PORT, () => {
-  console.log(`✅ API corriendo en puerto ${PORT}`);
-});
 // Inicializar datos la primera vez que se enciende
 const inicializarBaseDatos = async () => {
   try {
@@ -131,7 +128,6 @@ const inicializarBaseDatos = async () => {
 
     const cuantosAdmin = await Admin.countDocuments();
     if (cuantosAdmin === 0) {
-      const bcrypt = require('bcryptjs');
       await Admin.create({ 
         email: 'admin@kiajoel.com', 
         password: bcrypt.hashSync('admin123', 10) 
@@ -143,4 +139,6 @@ const inicializarBaseDatos = async () => {
   }
 };
 
-
+app.listen(PORT, () => {
+  console.log(`✅ API corriendo en puerto ${PORT}`);
+});
