@@ -111,3 +111,34 @@ mongoose.connect(MONGODB_URI)
 app.listen(PORT, () => {
   console.log(`✅ API corriendo en puerto ${PORT}`);
 });
+// Inicializar datos la primera vez que se enciende
+const inicializarBaseDatos = async () => {
+  try {
+    const cuantosServicios = await Servicio.countDocuments();
+    if (cuantosServicios === 0) {
+      await Servicio.insertMany([
+        { nombre: 'Transporte Terrestre', descripcion: 'Flota moderna y equipada para transporte de carga pesada y liviana a nivel nacional.', icono: '🚛' },
+        { nombre: 'Carga Completa y Parcial', descripcion: 'Soluciones adaptadas a su volumen. Desde envíos parciales hasta carga completa.', icono: '📦' },
+        { nombre: 'Seguridad y Seguimiento', descripcion: 'Monitoreo constante de su carga. Entregas puntuales y garantizadas.', icono: '🛡️' },
+        { nombre: 'Cobertura Nacional', descripcion: 'Llegamos a todo el Ecuador. Conexiones eficientes entre todas las regiones.', icono: '📍' }
+      ]);
+      console.log('✅ 4 servicios creados automáticamente');
+    } else {
+      console.log('ℹ️ Servicios ya existen:', cuantosServicios);
+    }
+
+    const cuantosAdmin = await Admin.countDocuments();
+    if (cuantosAdmin === 0) {
+      const bcrypt = require('bcryptjs');
+      await Admin.create({ 
+        email: 'admin@kiajoel.com', 
+        password: bcrypt.hashSync('admin123', 10) 
+      });
+      console.log('✅ Admin creado: admin@kiajoel.com / admin123');
+    }
+  } catch (err) {
+    console.log('ℹ️ Ya inicializado o error menor:', err.message);
+  }
+};
+
+
