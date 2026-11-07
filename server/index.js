@@ -1,3 +1,5 @@
+const Admin = mongoose.model('Admin', new mongoose.Schema({ email: String, password: String }));
+const Servicio = mongoose.model('Servicio', new mongoose.Schema({ nombre: String, descripcion: String, icono: String }));
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
