@@ -160,6 +160,117 @@
             </div>
         </div>
     </section>
+<!-- FORMULARIO DE COTIZACIÓN -->
+<div class="formulario-cotizacion" style="max-width: 600px; margin: 3rem auto 0; text-align: left; background: #fff; padding: 2rem; border-radius: 10px; border: 2px solid #D4AF37; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+  <h3 style="color: #0f2747; text-align: center; margin-bottom: 1.5rem;">📝 Solicitar Cotización</h3>
+  
+  <div style="margin-bottom: 1rem;">
+    <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Nombre completo</label>
+    <input type="text" id="nombre" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Teléfono</label>
+    <input type="tel" id="telefono" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+    <div>
+      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Origen</label>
+      <input type="text" id="origen" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
+    </div>
+    <div>
+      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Destino</label>
+      <input type="text" id="destino" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+    <div>
+      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Tipo de carga</label>
+      <select id="tipoCarga" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+        <option value="">Seleccione...</option>
+        <option>General</option>
+        <option>Perecedera</option>
+        <option>Materiales de construcción</option>
+        <option>Maquinaria</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div>
+      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Peso aproximado</label>
+      <input type="text" id="peso" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" placeholder="ej: 500 kg">
+    </div>
+  </div>
+
+  <div style="margin-bottom: 1.5rem;">
+    <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Mensaje adicional</label>
+    <textarea id="mensaje" rows="3" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;"></textarea>
+  </div>
+
+  <button id="btnEnviar" style="width: 100%; background: #c8102e; color: white; border: none; padding: 1rem; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">
+    ✅ Enviar Cotización
+  </button>
+
+  <p id="mensajeRespuesta" style="margin-top: 1rem; text-align: center; font-weight: bold;"></p>
+</div>
+
+<script>
+const API_URL = "https://kia-joel-api.onrender.com";
+
+document.getElementById('btnEnviar').addEventListener('click', async () => {
+  const datos = {
+    nombre: document.getElementById('nombre').value,
+    telefono: document.getElementById('telefono').value,
+    origen: document.getElementById('origen').value,
+    destino: document.getElementById('destino').value,
+    tipoCarga: document.getElementById('tipoCarga').value,
+    peso: document.getElementById('peso').value,
+    mensaje: document.getElementById('mensaje').value
+  };
+
+  if (!datos.nombre || !datos.telefono || !datos.origen || !datos.destino) {
+    document.getElementById('mensajeRespuesta').textContent = "⚠️ Completa los campos obligatorios";
+    document.getElementById('mensajeRespuesta').style.color = "orange";
+    return;
+  }
+
+  const btn = document.getElementById('btnEnviar');
+  btn.disabled = true;
+  btn.textContent = "Enviando...";
+
+  try {
+    const resp = await fetch(`${API_URL}/api/cotizaciones`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos)
+    });
+
+    const resultado = await resp.json();
+    
+    if (resp.ok) {
+      document.getElementById('mensajeRespuesta').textContent = "✅ ¡Enviado exitosamente! Nos comunicaremos pronto.";
+      document.getElementById('mensajeRespuesta').style.color = "green";
+      // Limpiar formulario
+      document.getElementById('nombre').value = '';
+      document.getElementById('telefono').value = '';
+      document.getElementById('origen').value = '';
+      document.getElementById('destino').value = '';
+      document.getElementById('tipoCarga').value = '';
+      document.getElementById('peso').value = '';
+      document.getElementById('mensaje').value = '';
+    } else {
+      throw new Error(resultado.error || "Error al enviar");
+    }
+  } catch (error) {
+    document.getElementById('mensajeRespuesta').textContent = "❌ Error: " + error.message;
+    document.getElementById('mensajeRespuesta').style.color = "red";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "✅ Enviar Cotización";
+  }
+});
+</script>
 
     <!-- ✅ PIE DE PÁGINA ORIGINAL -->
     <footer>
