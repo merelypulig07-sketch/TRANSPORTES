@@ -1,4 +1,6 @@
 
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const MONGODB_URI = "mongodb+srv://merelypulig07_db_user:ySE7hnvs4u8RfBzt@cluster0.r4pos1q.mongodb.net/transportes?retryWrites=true&w=majority";
 const ADMIN_PASSWORD = "admin123";
 
