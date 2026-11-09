@@ -39,7 +39,7 @@
         </div>
     </section>
 
-    <!-- ✅ QUIENES SOMOS / CARRUSEL — TUS IMÁGENES EXACTAS -->
+    <!-- QUIENES SOMOS / CARRUSEL — TUS IMÁGENES EXACTAS -->
     <section class="nosotros" id="nosotros">
         <div class="contenedor">
             <div class="nosotros-texto">
@@ -60,7 +60,7 @@
         </div>
     </section>
 
-    <!-- ✅ SECCIÓN SERVICIOS — NUEVA, SIN TOCAR LO DEMÁS -->
+    <!-- SECCIÓN SERVICIOS — NUEVA, SIN TOCAR LO DEMÁS -->
     <section class="servicios" id="servicios">
         <div class="contenedor">
             <div class="icono-decor camion">🚛</div>
@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    <!-- ✅ NUESTROS SOCIOS — TUS IMÁGENES EXACTAS -->
+    <!-- NUESTROS SOCIOS — TUS IMÁGENES EXACTAS -->
     <section class="clientes" id="clientes">
         <div class="contenedor">
             <span class="etiqueta">Nuestros Socios</span>
@@ -160,60 +160,90 @@
             </div>
         </div>
     </section>
-<!-- FORMULARIO DE COTIZACIÓN -->
-<div class="formulario-cotizacion" style="max-width: 600px; margin: 3rem auto 0; text-align: left; background: #fff; padding: 2rem; border-radius: 10px; border: 2px solid #D4AF37; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <h3 style="color: #0f2747; text-align: center; margin-bottom: 1.5rem;">📝 Solicitar Cotización</h3>
-  
-  <div style="margin-bottom: 1rem;">
-    <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Nombre completo</label>
-    <input type="text" id="nombre" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
-  </div>
 
-  <div style="margin-bottom: 1rem;">
-    <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Teléfono</label>
-    <input type="tel" id="telefono" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
-  </div>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-    <div>
-      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Origen</label>
-      <input type="text" id="origen" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
+<!-- SECCIÓN CONTACTO Y FORMULARIO -->
+<section class="contacto-formulario-seccion">
+  <div class="contenedor-contacto-doble">
+    
+    <!-- Tarjeta Izquierda: Ubicación + Logo + Frase -->
+    <div class="tarjeta-info">
+      <div class="bloque-dato">
+        <h4>📍 Ubicación</h4>
+        <p>Guayaquil, Ecuador</p>
+      </div>
+      
+      <div class="bloque-dato">
+        <h4>📅 Atención</h4>
+        <p>Lunes a Sábado</p>
+        <p>08:00 – 18:00</p>
+      </div>
+      
+      <div class="logo-frase-contenedor">
+        <img src="logo-empresa.jpeg" alt="KIA & JOELOGÍSTICA S.A." class="logo-empresa-form">
+        <p class="frase-empresa">
+          "En KIA & JOELOGÍSTICA S.A. estamos siempre listos para atenderle y llevar su carga a cualquier destino con seguridad, puntualidad y confianza."
+        </p>
+      </div>
     </div>
-    <div>
-      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Destino</label>
-      <input type="text" id="destino" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" required>
+
+    <!-- Tarjeta Derecha: Formulario de Cotización -->
+    <div class="tarjeta-formulario">
+      <h3>💬 Escríbenos</h3>
+      <p class="subtitulo-form">Llena el formulario y te responderemos lo antes posible.</p>
+      
+      <div class="campo-form">
+        <label>Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+      </div>
+      
+      <div class="campo-form">
+        <label>Teléfono / WhatsApp</label>
+        <input type="tel" id="telefono" placeholder="Ej: 0991234567">
+      </div>
+      
+      <div class="campo-form-doble">
+        <div>
+          <label>Origen</label>
+          <input type="text" id="origen" placeholder="Ciudad de salida" required>
+        </div>
+        <div>
+          <label>Destino</label>
+          <input type="text" id="destino" placeholder="Ciudad de llegada" required>
+        </div>
+      </div>
+      
+      <div class="campo-form-doble">
+        <div>
+          <label>Tipo de carga</label>
+          <select id="tipoCarga">
+            <option value="">Seleccione...</option>
+            <option>General</option>
+            <option>Perecedera</option>
+            <option>Materiales de construcción</option>
+            <option>Maquinaria</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div>
+          <label>Peso aproximado</label>
+          <input type="text" id="peso" placeholder="Ej: 500 kg">
+        </div>
+      </div>
+      
+      <div class="campo-form">
+        <label>Mensaje adicional</label>
+        <textarea id="mensaje" rows="4" placeholder="Cuéntanos más sobre lo que necesitas..."></textarea>
+      </div>
+      
+      <button id="btnEnviar" class="btn-enviar-form">
+        ✅ Enviar Cotización
+      </button>
+      
+      <p id="mensajeRespuesta" class="mensaje-respuesta"></p>
     </div>
+
   </div>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-    <div>
-      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Tipo de carga</label>
-      <select id="tipoCarga" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
-        <option value="">Seleccione...</option>
-        <option>General</option>
-        <option>Perecedera</option>
-        <option>Materiales de construcción</option>
-        <option>Maquinaria</option>
-        <option>Otro</option>
-      </select>
-    </div>
-    <div>
-      <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Peso aproximado</label>
-      <input type="text" id="peso" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" placeholder="ej: 500 kg">
-    </div>
-  </div>
-
-  <div style="margin-bottom: 1.5rem;">
-    <label style="display: block; font-weight: 600; color: #0f2747; margin-bottom: 0.3rem;">Mensaje adicional</label>
-    <textarea id="mensaje" rows="3" style="width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;"></textarea>
-  </div>
-
-  <button id="btnEnviar" style="width: 100%; background: #c8102e; color: white; border: none; padding: 1rem; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">
-    ✅ Enviar Cotización
-  </button>
-
-  <p id="mensajeRespuesta" style="margin-top: 1rem; text-align: center; font-weight: bold;"></p>
-</div>
+</section>
 
 <script>
 const API_URL = "https://kia-joel-api.onrender.com";
@@ -229,9 +259,9 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
     mensaje: document.getElementById('mensaje').value
   };
 
-  if (!datos.nombre || !datos.telefono || !datos.origen || !datos.destino) {
+  if (!datos.nombre || !datos.origen || !datos.destino) {
     document.getElementById('mensajeRespuesta').textContent = "⚠️ Completa los campos obligatorios";
-    document.getElementById('mensajeRespuesta').style.color = "orange";
+    document.getElementById('mensajeRespuesta').style.color = "#e67e22";
     return;
   }
 
@@ -250,7 +280,7 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
     
     if (resp.ok) {
       document.getElementById('mensajeRespuesta').textContent = "✅ ¡Enviado exitosamente! Nos comunicaremos pronto.";
-      document.getElementById('mensajeRespuesta').style.color = "green";
+      document.getElementById('mensajeRespuesta').style.color = "#27ae60";
       // Limpiar formulario
       document.getElementById('nombre').value = '';
       document.getElementById('telefono').value = '';
@@ -264,13 +294,14 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
     }
   } catch (error) {
     document.getElementById('mensajeRespuesta').textContent = "❌ Error: " + error.message;
-    document.getElementById('mensajeRespuesta').style.color = "red";
+    document.getElementById('mensajeRespuesta').style.color = "#e74c3c";
   } finally {
     btn.disabled = false;
     btn.textContent = "✅ Enviar Cotización";
   }
 });
 </script>
+
 
     <!-- ✅ PIE DE PÁGINA ORIGINAL -->
     <footer>
