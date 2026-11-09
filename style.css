@@ -524,3 +524,149 @@ footer {
     .carrusel-imagenes { height: 250px; }
     .onda-dorada-fija { height: 120px; }
 }
+/* =============================================
+   SECCIÓN CONTACTO + FORMULARIO ESTILO NUEVO
+   ============================================= */
+.contacto-formulario-seccion {
+  padding: 4rem 5%;
+  background: #f0f7f0;
+}
+
+.contenedor-contacto-doble {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+}
+
+.tarjeta-info, .tarjeta-formulario {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.tarjeta-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2c5f2d;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-info p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.logo-frase-contenedor {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.logo-empresa-form {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #e8f5e9;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.frase-empresa {
+  color: #333;
+  font-style: italic;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.tarjeta-formulario h3 {
+  font-size: 1.3rem;
+  color: #2c5f2d;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo-form {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo-form {
+  margin-bottom: 1.2rem;
+}
+
+.campo-form label {
+  display: block;
+  font-weight: 600;
+  color: #2c5f2d;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.campo-form input,
+.campo-form select,
+.campo-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #d4e6d4;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #f8fcf8;
+}
+
+.campo-form input:focus,
+.campo-form select:focus,
+.campo-form textarea:focus {
+  outline: none;
+  border-color: #2c5f2d;
+  background: #fff;
+}
+
+.campo-form-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn-enviar-form {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(90deg, #27ae60, #1e8449);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-enviar-form:hover {
+  transform: scale(1.02);
+}
+
+.btn-enviar-form:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mensaje-respuesta {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Responsivo */
+@media(max-width: 768px) {
+  .contenedor-contacto-doble {
+    grid-template-columns: 1fr;
+  }
+  .campo-form-doble {
+    grid-template-columns: 1fr;
+  }
+}
