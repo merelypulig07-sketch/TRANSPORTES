@@ -270,19 +270,7 @@ nav a:hover, nav a.active {
     color: #555;
     font-size: 0.95rem;
 }
-.icono-decor {
-    position: absolute;
-    color: rgba(255, 215, 0, 0.35);
-    font-size: 2rem;
-    pointer-events: none;
-    z-index: 1;
-}
-.icono-decor.camion { top: 12%; left: 4%; }
-.icono-decor.flecha { top: 18%; left: 12%; }
-.icono-decor.flecha2 { top: 14%; right: 8%; }
-.icono-decor.mapa { bottom: 20%; left: 6%; }
-.icono-decor.escudo { bottom: 18%; right: 6%; }
-.icono-decor.camion2 { bottom: 10%; right: 15%; }
+
 
 /* =============================================
    PARTE FINAL — MISMO COLOR QUE NUESTROS SERVICIOS
