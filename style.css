@@ -356,30 +356,76 @@ nav a:hover, nav a.active {
 /* =============================================
    PREGUNTAS FRECUENTES
    ============================================= */
+/* ===== SECCIÓN PREGUNTAS FRECUENTES — AZUL MARINO ===== */
 .preguntas-seccion {
-    padding: 5rem 5%;
+    background-color: #0A1A2F;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
 }
+
+.preguntas-seccion .contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.preguntas-seccion .etiqueta {
+    color: #D4AF37;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.preguntas-seccion h2 {
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
 .preguntas-seccion .descripcion {
-    max-width: 700px;
-    margin-bottom: 3rem;
+    color: #e0e0e0;
+    font-size: 17px;
+    margin-bottom: 40px;
 }
-details.pregunta {
-    max-width: 800px;
-    margin: 0 auto 1rem;
-    padding: 1.5rem 1.8rem;
-    border-radius: 8px;
+
+.pregunta {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
 }
-details.pregunta summary {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--azul-oscuro);
+
+.pregunta summary {
+    color: #ffffff;
+    padding: 18px 25px;
+    font-size: 17px;
+    cursor: pointer;
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-details.pregunta p {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    color: #555;
-    border-top: 1px solid #eee;
+
+.pregunta summary::after {
+    content: '+';
+    color: #D4AF37;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.pregunta[open] summary::after {
+    content: '−';
+}
+
+.pregunta p {
+    color: #e0e0e0;
+    padding: 0 25px 20px;
+    margin: 0;
+    line-height: 1.7;
 }
 
 /* =============================================
