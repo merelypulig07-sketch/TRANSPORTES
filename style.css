@@ -430,21 +430,29 @@ nav a:hover, nav a.active {
 /* ===== SECCIÓN CONTACTO ===== */
 .contacto-seccion,
 .contacto-formulario-seccion {
-    background-color: #f8f4e9;  
-    padding: 25px 20px;  
+    background-color: #f8f4e9;
+    padding: 25px 20px;
     position: relative;
 }
 
 .contacto-seccion h2,
 .contacto-formulario-seccion h2 {
-    margin-top: 0;       
-    margin-bottom: 20px; 
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center; /* Centramos también el título */
 }
 
-/* Ajusta también el contenedor interno */
+/* Contenedor centrado — tarjetas una debajo de la otra */
 .contenedor-contacto-doble {
-    gap: 25px;  
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
+
 
 /* =============================================
    PIE DE PÁGINA — MISMO TONO AZUL OSCURO
@@ -857,4 +865,29 @@ button, a, summary, .flecha, .btn-enviar-form {
         right: 1rem;
     }
 }
+
+   /* ===== BOTÓN DE WHATSAPP FIJO ===== */
+.whatsapp-fijo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-fijo:hover {
+    transform: scale(1.1);
+}
+
 
