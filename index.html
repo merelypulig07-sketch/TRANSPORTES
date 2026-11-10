@@ -413,3 +413,103 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
 
 </body>
 </html>
+
+<!-- =============================================
+     RUTI-BOT — CHAT INTELIGENTE 🤖🚛
+     ============================================= -->
+<div class="boton-chat-flotante" id="botonChat">
+    💬
+</div>
+
+<div class="ventana-chat" id="ventanaChat" style="display: none;">
+    <div class="cabecera-chat">
+        <span class="nombre-bot">🚛 Ruti-Bot</span>
+        <button class="cerrar-chat" id="cerrarChat">✕</button>
+    </div>
+    
+    <div class="cuerpo-chat" id="cuerpoChat">
+        <div class="mensaje-bot">
+            ¡Hola! 👋 Soy <strong>Ruti-Bot</strong>, el asistente virtual de KIA & JOELOGÍSTICA. ¿En qué puedo ayudarte hoy?
+        </div>
+    </div>
+    
+    <div class="entrada-chat">
+        <input type="text" id="entradaMensaje" placeholder="Escribe tu mensaje...">
+        <button id="enviarMensaje">Enviar</button>
+    </div>
+</div>
+
+<script>
+const API_URL = "https://kia-joel-api.onrender.com";
+
+const botonChat = document.getElementById('botonChat');
+const ventanaChat = document.getElementById('ventanaChat');
+const cerrarChat = document.getElementById('cerrarChat');
+const entradaMensaje = document.getElementById('entradaMensaje');
+const enviarMensaje = document.getElementById('enviarMensaje');
+const cuerpoChat = document.getElementById('cuerpoChat');
+
+// Abrir y cerrar el chat
+botonChat.addEventListener('click', () => {
+    ventanaChat.style.display = ventanaChat.style.display === 'none' ? 'flex' : 'none';
+});
+
+cerrarChat.addEventListener('click', () => {
+    ventanaChat.style.display = 'none';
+});
+
+// Enviar mensaje
+async function enviarMensajeChat() {
+    const texto = entradaMensaje.value.trim();
+    if (!texto) return;
+
+    // Mostrar mensaje del usuario
+    const divUsuario = document.createElement('div');
+    divUsuario.className = 'mensaje-usuario';
+    divUsuario.textContent = texto;
+    cuerpoChat.appendChild(divUsuario);
+    entradaMensaje.value = '';
+
+    // Mostrar "escribiendo..."
+    const escribiendo = document.createElement('div');
+    escribiendo.className = 'mensaje-bot';
+    escribiendo.textContent = 'Escribiendo...';
+    cuerpoChat.appendChild(escribiendo);
+    cuerpoChat.scrollTop = cuerpoChat.scrollHeight;
+
+    try {
+        // Enviar a la IA del backend
+        const resp = await fetch(`${API_URL}/api/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ mensaje: texto })
+        });
+
+        const datos = await resp.json();
+        
+        // Quitar "escribiendo..."
+        cuerpoChat.removeChild(escribiendo);
+
+        // Mostrar respuesta
+        const divRespuesta = document.createElement('div');
+        divRespuesta.className = 'mensaje-bot';
+        divRespuesta.innerHTML = datos.respuesta || 'Lo siento, no entendí. ¿Podrías repetirlo?';
+        cuerpoChat.appendChild(divRespuesta);
+
+    } catch (error) {
+        cuerpoChat.removeChild(escribiendo);
+        const divError = document.createElement('div');
+        divError.className = 'mensaje-bot';
+        divError.textContent = '🔌 Estamos conectando el servicio. Por favor, intenta más tarde o llama al 0994588225.';
+        cuerpoChat.appendChild(divError);
+    }
+
+    cuerpoChat.scrollTop = cuerpoChat.scrollHeight;
+}
+
+enviarMensaje.addEventListener('click', enviarMensajeChat);
+entradaMensaje.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') enviarMensajeChat();
+});
+</script>
+
