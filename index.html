@@ -40,27 +40,28 @@
     </section>
 
     <!-- QUIENES SOMOS / CARRUSEL — TUS IMÁGENES EXACTAS -->
-    <section class="nosotros" id="nosotros">
-        <div class="contenedor">
-            <div class="nosotros-texto">
-                <span class="etiqueta">Quiénes Somos</span>
-                <h2>Su Socio Estratégico en Logística</h2>
-                <p>KIA & JOELOGÍSTICA S.A. es una empresa ecuatoriana dedicada al transporte terrestre de carga, con amplia experiencia en el mercado nacional.</p>
-                <p>Nos caracterizamos por brindar un servicio seguro, puntual y de calidad, garantizando que su mercancía llegue a su destino en perfectas condiciones.</p>
-            </div>
-            <div class="nosotros-carrusel">
-                <button class="flecha izq">&lt;</button>
-                <div class="carrusel-imagenes">
-                    <img src="fondo.png" alt="Flota de camiones" class="carrusel-img activa">
-                    <img src="fondo2.jpeg" alt="Carga y Logística" class="carrusel-img">
-                    <img src="fondo3.jpeg" alt="Entrega Segura" class="carrusel-img">
-                </div>
-                <button class="flecha der">&gt;</button>
-            </div>
+    
+    <!-- ✅ QUIENES SOMOS / CARRUSEL -->
+<section class="nosotros" id="nosotros">
+    <div class="contenedor">
+        <div class="nosotros-texto">
+            <span class="etiqueta">Quiénes Somos</span>
+            <h2>Su Socio Estratégico en Logística</h2>
+            <p>KIA & JOELOGÍSTICA S.A. es una empresa ecuatoriana dedicada al transporte terrestre de carga, con amplia experiencia en el mercado nacional.</p>
+            <p>Nos caracterizamos por brindar un servicio seguro, puntual y de calidad, garantizando que su mercancía llegue a su destino en perfectas condiciones.</p>
         </div>
-    </section>
-
-    <!-- SECCIÓN SERVICIOS — NUEVA, SIN TOCAR LO DEMÁS -->
+        <div class="nosotros-carrusel">
+            <button class="flecha izq">&lt;</button>
+            <div class="carrusel-imagenes">
+                <img src="fondo.png" alt="Flota de camiones" class="carrusel-img activa">
+                <img src="fondo2.jpeg" alt="Carga y Logística" class="carrusel-img">
+                <img src="fondo3.jpeg" alt="Entrega Segura" class="carrusel-img">
+            </div>
+            <button class="flecha der">&gt;</button>
+        </div>
+    </div>
+</section>
+<!-- SECCIÓN SERVICIOS — NUEVA, SIN TOCAR LO DEMÁS -->
     <section class="servicios" id="servicios">
         <div class="contenedor">
             <div class="icono-decor camion">🚛</div>
@@ -340,34 +341,40 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
     </a>
 
     <!-- ✅ FUNCIONAMIENTO DEL CARRUSEL -->
-    <script>
-        const API_URL = "https://kia-joel-api.onrender.com";
-        const imagenes = document.querySelectorAll('.carrusel-img');
-        const flechaIzq = document.querySelector('.flecha.izq');
-        const flechaDer = document.querySelector('.flecha.der');
-        let indiceActual = 0;
 
-        function mostrarImagen(indice) {
-            imagenes.forEach((img, i) => {
-                img.classList.remove('activa');
-                if (i === indice) img.classList.add('activa');
-            });
-        }
+<script>
+    const imagenes = document.querySelectorAll('.carrusel-img');
+    const flechaIzq = document.querySelector('.flecha.izq');
+    const flechaDer = document.querySelector('.flecha.der');
+    let indiceActual = 0;
 
-        flechaDer.addEventListener('click', () => {
-            indiceActual = (indiceActual + 1) % imagenes.length;
-            mostrarImagen(indiceActual);
+    function mostrarImagen(indice) {
+        // Ocultar todas
+        imagenes.forEach((img) => {
+            img.classList.remove('activa');
         });
+        // Mostrar la actual
+        imagenes[indice].classList.add('activa');
+    }
 
-        flechaIzq.addEventListener('click', () => {
-            indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
-            mostrarImagen(indiceActual);
-        });
+    // Flecha siguiente
+    flechaDer.addEventListener('click', () => {
+        indiceActual = (indiceActual + 1) % imagenes.length;
+        mostrarImagen(indiceActual);
+    });
 
-        setInterval(() => {
-            indiceActual = (indiceActual + 1) % imagenes.length;
-            mostrarImagen(indiceActual);
-        }, 5000);
-    </script>
+    // Flecha anterior
+    flechaIzq.addEventListener('click', () => {
+        indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+        mostrarImagen(indiceActual);
+    });
+
+    // Cambio automático cada 5 segundos
+    setInterval(() => {
+        indiceActual = (indiceActual + 1) % imagenes.length;
+        mostrarImagen(indiceActual);
+    }, 5000);
+</script>
+
 </body>
 </html>
