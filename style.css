@@ -669,8 +669,8 @@ footer {
 /* En botones y enlaces también aparece el camión */
 button, a, summary, .flecha, .btn-enviar-form {
   cursor: url('cursor-camion.png'), pointer;
-}/* =============================================
-   ESTILOS DE RUTI-BOT 🤖🚛
+/* =============================================
+   ESTILOS DE RUTI-BOT 🚛💬 — Colores de tu marca
    ============================================= */
 .boton-chat-flotante {
     position: fixed;
@@ -699,10 +699,10 @@ button, a, summary, .flecha, .btn-enviar-form {
     bottom: 10rem;
     right: 6rem;
     width: 380px;
-    height: 500px;
-    background: white;
+    height: 520px;
+    background: #fff;
     border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 30px rgba(10, 26, 47, 0.2);
     z-index: 99;
     display: flex;
     flex-direction: column;
@@ -722,6 +722,9 @@ button, a, summary, .flecha, .btn-enviar-form {
 
 .nombre-bot {
     font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .cerrar-chat {
@@ -730,31 +733,39 @@ button, a, summary, .flecha, .btn-enviar-form {
     color: white;
     font-size: 1.3rem;
     cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.cerrar-chat:hover {
+    opacity: 1;
 }
 
 .cuerpo-chat {
     flex: 1;
     padding: 1rem;
     overflow-y: auto;
-    background: #f8f9fa;
+    background: linear-gradient(180deg, #f8f9fa, #fff9e6);
 }
 
 .mensaje-bot, .mensaje-usuario {
     margin-bottom: 1rem;
-    padding: 0.8rem 1rem;
+    padding: 0.9rem 1.1rem;
     border-radius: 18px;
     max-width: 85%;
-    line-height: 1.4;
+    line-height: 1.5;
+    white-space: pre-line;
 }
 
 .mensaje-bot {
-    background: #e8f0fe;
+    background: linear-gradient(135deg, #e8f0fe, #f0f4ff);
     color: #0A1A2F;
     border-bottom-left-radius: 4px;
+    border-left: 3px solid #D4AF37;
 }
 
 .mensaje-usuario {
-    background: linear-gradient(90deg, #D4AF37, #FFD700);
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #0A1A2F;
     margin-left: auto;
     border-bottom-right-radius: 4px;
@@ -764,33 +775,41 @@ button, a, summary, .flecha, .btn-enviar-form {
 .entrada-chat {
     display: flex;
     padding: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #f0e6c8;
     gap: 0.5rem;
+    background: #fffdf5;
 }
 
 .entrada-chat input {
     flex: 1;
-    padding: 0.8rem 1rem;
-    border: 1px solid #ddd;
+    padding: 0.85rem 1.2rem;
+    border: 1px solid #e0c870;
     border-radius: 25px;
     outline: none;
+    font-size: 0.95rem;
+    background: #fff;
+}
+
+.entrada-chat input:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
 }
 
 .entrada-chat button {
-    padding: 0.8rem 1.5rem;
-    background: #0A1A2F;
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
+    transition: transform 0.2s;
 }
 
 .entrada-chat button:hover {
-    background: #123D66;
+    transform: scale(1.05);
 }
 
-/* Responsivo */
 @media(max-width: 480px) {
     .ventana-chat {
         width: calc(100% - 2rem);
