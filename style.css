@@ -426,32 +426,25 @@ nav a:hover, nav a.active {
     line-height: 1.7;
 }
 
-/* =============================================
-   CONTACTO
-   ============================================= */
-.contacto {
-    padding: 5rem 5%;
-    text-align: center;
+
+/* ===== SECCIÓN CONTACTO ===== */
+.contacto-seccion,
+.contacto-formulario-seccion {
+    background-color: #f8f4e9;  
+    padding: 25px 20px;  
+    position: relative;
 }
-.contacto p {
-    max-width: 600px;
-    margin: 0 auto 3rem;
+
+.contacto-seccion h2,
+.contacto-formulario-seccion h2 {
+    margin-top: 0;       
+    margin-bottom: 20px; 
 }
-.contacto-datos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+
+/* Ajusta también el contenedor interno */
+.contenedor-contacto-doble {
+    gap: 25px;  
 }
-.dato-contacto {
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-.dato-contacto h3 {
-    color: var(--azul-oscuro);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-.dato-contacto p { margin: 0; }
 
 /* =============================================
    PIE DE PÁGINA — MISMO TONO AZUL OSCURO
