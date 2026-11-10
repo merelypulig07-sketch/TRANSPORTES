@@ -658,13 +658,16 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-/*  CURSOR PERSONALIZADO: CAMIÓN 🚛
- 
+
+/* =============================================
+   CURSOR PERSONALIZADO — TU CAMIONCITO 🚛
+   ============================================= */
 * {
-  cursor: url('https://cdn-icons-png.flaticon.com/32/1033/1033662.png'), auto;
+  cursor: url('cursor-camion.png'), auto;
 }
 
-/* Opcional: Mantener la manita en botones y enlaces */
-button, a, summary, input[type="submit"] {
-  cursor: url('https://cdn-icons-png.flaticon.com/32/1033/1033662.png'), pointer;
+/* En botones y enlaces también aparece el camión */
+button, a, summary, .flecha, .btn-enviar-form {
+  cursor: url('cursor-camion.png'), pointer;
 }
+
