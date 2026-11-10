@@ -669,5 +669,136 @@ footer {
 /* En botones y enlaces también aparece el camión */
 button, a, summary, .flecha, .btn-enviar-form {
   cursor: url('cursor-camion.png'), pointer;
+}/* =============================================
+   ESTILOS DE RUTI-BOT 🤖🚛
+   ============================================= */
+.boton-chat-flotante {
+    position: fixed;
+    bottom: 10rem;
+    right: 2rem;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    z-index: 98;
+    transition: transform 0.3s ease;
+}
+
+.boton-chat-flotante:hover {
+    transform: scale(1.1);
+}
+
+.ventana-chat {
+    position: fixed;
+    bottom: 10rem;
+    right: 6rem;
+    width: 380px;
+    height: 500px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+}
+
+.cabecera-chat {
+    background: linear-gradient(90deg, #0A1A2F, #1E5A9C);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.nombre-bot {
+    font-size: 1.1rem;
+}
+
+.cerrar-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.cuerpo-chat {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #f8f9fa;
+}
+
+.mensaje-bot, .mensaje-usuario {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 18px;
+    max-width: 85%;
+    line-height: 1.4;
+}
+
+.mensaje-bot {
+    background: #e8f0fe;
+    color: #0A1A2F;
+    border-bottom-left-radius: 4px;
+}
+
+.mensaje-usuario {
+    background: linear-gradient(90deg, #D4AF37, #FFD700);
+    color: #0A1A2F;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+}
+
+.entrada-chat {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    gap: 0.5rem;
+}
+
+.entrada-chat input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+}
+
+.entrada-chat button {
+    padding: 0.8rem 1.5rem;
+    background: #0A1A2F;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.entrada-chat button:hover {
+    background: #123D66;
+}
+
+/* Responsivo */
+@media(max-width: 480px) {
+    .ventana-chat {
+        width: calc(100% - 2rem);
+        right: 1rem;
+        bottom: 10rem;
+    }
+    .boton-chat-flotante {
+        right: 1rem;
+    }
 }
 
