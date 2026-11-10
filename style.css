@@ -353,12 +353,9 @@ nav a:hover, nav a.active {
     color: var(--azul-oscuro);
 }
 
-/* =============================================
-   PREGUNTAS FRECUENTES
-   ============================================= */
-/* ===== SECCIÓN PREGUNTAS FRECUENTES — AZUL MARINO ===== */
+/* ===== SECCIÓN PREGUNTAS FRECUENTES — Fondo claro, recuadros azul marino ===== */
 .preguntas-seccion {
-    background-color: #0A1A2F;
+    background-color: #f8f4e9;  /* Fondo beige original */
     padding: 60px 20px;
     position: relative;
     overflow: hidden;
@@ -380,27 +377,28 @@ nav a:hover, nav a.active {
 }
 
 .preguntas-seccion h2 {
-    color: #ffffff;
+    color: #0A1A2F;  /* Azul marino en el título */
     font-size: 36px;
     margin-bottom: 15px;
 }
 
 .preguntas-seccion .descripcion {
-    color: #e0e0e0;
+    color: #333333;
     font-size: 17px;
     margin-bottom: 40px;
 }
 
+/* ===== SOLO LOS RECUADROS VAN AZUL MARINO ===== */
 .pregunta {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: #0A1A2F;  /* Azul marino SOLO en el recuadro */
+    border: 1px solid rgba(212, 175, 55, 0.4);
     border-radius: 10px;
     margin-bottom: 15px;
     text-align: left;
 }
 
 .pregunta summary {
-    color: #ffffff;
+    color: #ffffff;  /* Texto blanco dentro del recuadro */
     padding: 18px 25px;
     font-size: 17px;
     cursor: pointer;
@@ -412,7 +410,7 @@ nav a:hover, nav a.active {
 
 .pregunta summary::after {
     content: '+';
-    color: #D4AF37;
+    color: #D4AF37;  /* Signo + en dorado */
     font-size: 22px;
     font-weight: bold;
 }
@@ -422,7 +420,7 @@ nav a:hover, nav a.active {
 }
 
 .pregunta p {
-    color: #e0e0e0;
+    color: #e0e0e0;  /* Texto de respuesta claro */
     padding: 0 25px 20px;
     margin: 0;
     line-height: 1.7;
