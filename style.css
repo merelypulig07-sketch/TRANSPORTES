@@ -670,3 +670,13 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/*  CURSOR PERSONALIZADO: CAMIÓN 🚛
+ 
+* {
+  cursor: url('https://cdn-icons-png.flaticon.com/32/1033/1033662.png'), auto;
+}
+
+/* Opcional: Mantener la manita en botones y enlaces */
+button, a, summary, input[type="submit"] {
+  cursor: url('https://cdn-icons-png.flaticon.com/32/1033/1033662.png'), pointer;
+}
