@@ -39,9 +39,9 @@
         </div>
     </section>
 
-    <!-- QUIENES SOMOS / CARRUSEL — TUS IMÁGENES EXACTAS -->
     
-    <!-- ✅ QUIENES SOMOS / CARRUSEL -->
+    
+ <!--  QUIENES SOMOS / CARRUSEL -->
 <section class="nosotros" id="nosotros">
     <div class="contenedor">
         <div class="nosotros-texto">
@@ -61,7 +61,8 @@
         </div>
     </div>
 </section>
-<!-- SECCIÓN SERVICIOS — NUEVA, SIN TOCAR LO DEMÁS -->
+
+<!-- SECCIÓN SERVICIOS  -->
     <section class="servicios" id="servicios">
         <div class="contenedor">
             <div class="icono-decor camion">🚛</div>
@@ -119,21 +120,40 @@
     </section>
 
     <!-- Sección Preguntas Frecuentes -->
-    <section class="preguntas-seccion" id="preguntas">
-        <div class="contenedor">
-            <span class="etiqueta">Preguntas Frecuentes</span>
-            <h2>¿Dudas?</h2>
-            <p class="descripcion">Respuestas a las consultas más comunes sobre nuestros servicios.</p>
-            <details class="pregunta">
-                <summary>¿A qué ciudades llegamos?</summary>
-                <p>Realizamos transporte a las principales ciudades y regiones del Ecuador.</p>
-            </details>
-            <details class="pregunta">
-                <summary>¿Cuáles son los tiempos de entrega?</summary>
-                <p>Depende del destino, generalmente entre 24 y 72 horas.</p>
-            </details>
-        </div>
-    </section>
+
+<section class="preguntas-seccion" id="preguntas">
+    <div class="contenedor">
+        <span class="etiqueta">Preguntas Frecuentes</span>
+        <h2>¿Dudas?</h2>
+        <p class="descripcion">Respuestas a las consultas más comunes sobre nuestros servicios.</p>
+
+        <details class="pregunta">
+            <summary>¿Ofrecen descuentos por contratar servicios frecuentes?</summary>
+            <p>¡Sí! Contamos con un plan de membresía diseñado para nuestros clientes frecuentes, que les permite acceder a beneficios y condiciones especiales. De esta manera, buscamos brindar mayores ventajas a quienes confían continuamente en nuestros servicios de logística y transporte.</p>
+        </details>
+
+        <details class="pregunta">
+            <summary>¿El precio incluye seguro de mercancía?</summary>
+            <p>La cobertura de protección de la mercancía se establece de acuerdo con las condiciones especificadas en el contrato de transporte. En este documento se determina el porcentaje de cobertura y las responsabilidades correspondientes, garantizando que nuestros clientes conozcan claramente las condiciones del servicio antes de contratarlo.</p>
+        </details>
+
+        <details class="pregunta">
+            <summary>¿Los vehículos cuentan con GPS para monitorear la mercancía?</summary>
+            <p>¡Sí! Nos preocupamos por la seguridad de cada traslado. Contamos con monitoreo y supervisión por parte de nuestro personal, además de coordinación con los sistemas de seguridad del ECU 911, según corresponda. Esto nos permite mantener un mayor control durante el transporte y contribuir a que la mercancía llegue de manera segura a su destino.</p>
+        </details>
+
+        <details class="pregunta">
+            <summary>¿Realizan entregas durante los fines de semana y feriados?</summary>
+            <p>¡Por supuesto! Ofrecemos disponibilidad para realizar entregas durante fines de semana y feriados, mediante una planificación y agendamiento previo del servicio. Nuestro personal coordina cada operación con anticipación para garantizar una entrega organizada y eficiente, adaptándonos a las necesidades de nuestros clientes.</p>
+        </details>
+
+        <details class="pregunta">
+            <summary>¿Ofrecen contratos para empresas que necesitan transporte constantemente?</summary>
+            <p>¡Sí! Trabajamos mediante contratos con diferentes empresas pertenecientes al sector industrial y comercial. Ofrecemos soluciones de transporte adaptadas a sus necesidades operativas, facilitando la planificación de sus envíos y manteniendo una relación comercial basada en la confianza, el compromiso y la continuidad del servicio.</p>
+        </details>
+    </div>
+</section>
+
 
     <!-- Sección Contacto -->
     <section class="contacto" id="contacto">
@@ -342,6 +362,7 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
 
     <!-- ✅ FUNCIONAMIENTO DEL CARRUSEL -->
 
+<!-- ✅ FUNCIONAMIENTO DEL CARRUSEL CORREGIDO -->
 <script>
     const imagenes = document.querySelectorAll('.carrusel-img');
     const flechaIzq = document.querySelector('.flecha.izq');
@@ -356,6 +377,26 @@ document.getElementById('btnEnviar').addEventListener('click', async () => {
         // Mostrar la actual
         imagenes[indice].classList.add('activa');
     }
+
+    // Flecha siguiente
+    flechaDer.addEventListener('click', () => {
+        indiceActual = (indiceActual + 1) % imagenes.length;
+        mostrarImagen(indiceActual);
+    });
+
+    // Flecha anterior
+    flechaIzq.addEventListener('click', () => {
+        indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+        mostrarImagen(indiceActual);
+    });
+
+    // Cambio automático cada 5 segundos
+    setInterval(() => {
+        indiceActual = (indiceActual + 1) % imagenes.length;
+        mostrarImagen(indiceActual);
+    }, 5000);
+</script>
+
 
     // Flecha siguiente
     flechaDer.addEventListener('click', () => {
