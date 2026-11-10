@@ -890,4 +890,19 @@ button, a, summary, .flecha, .btn-enviar-form {
     transform: scale(1.1);
 }
 
+/* Tarjetas de contacto — bordes azul marino */
+.tarjeta-contacto,
+.cuadro-contacto,
+.contenedor-contacto-doble > div {
+    border: 2px solid #0A1A2F;  /* Borde azul marino más grueso y definido */
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(10, 26, 47, 0.2),  /* Contorno suave */
+                0 4px 15px rgba(10, 26, 47, 0.1); /* Sombra suave para dar profundidad */
+    background-color: #ffffff;
+}
+.tarjeta-contacto:hover,
+.cuadro-contacto:hover {
+    border-color: #D4AF37;  /* Cambia a dorado al pasar el cursor ✨ */
+    transition: border-color 0.3s ease;
+}
 
